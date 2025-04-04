@@ -14,10 +14,14 @@ import {
   Modal,
   List,
   ListItem,
+  TextField,
+  Avatar,
 } from "@mui/material";
+import Woman from "../assests/woman.png";
 import Profileimg from "../assests/profileimg.png";
 import Logo from "../assests/logo.png";
 import Arrow from "../assests/arrow-down.png";
+import Calender from "../assests/calendar 1(1).png";
 //import Lang from "../assests/language-square@2x.png";
 import Down from "../assests/chevron-down.png";
 import Search from "../assests/search 1.png";
@@ -206,7 +210,7 @@ function Profile() {
       <Box
         sx={{
           height: "1142px",
-            width: "1288px",
+          width: "1288px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -351,7 +355,7 @@ function Profile() {
                   gap: "14px",
                   display: "flex",
                   alignItems: "center",
-                  marginTop:"50px"
+                  marginTop: "50px",
                 }}
               >
                 <Button
@@ -381,8 +385,477 @@ function Profile() {
                 </Button>
                 <div>
                   <Modal open={open} onClose={handleClose}>
-                    <Box>
-                      <Typography>Hi there</Typography>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        width: "477px",
+                        height: "100%",
+                        bgcolor: "background.paper",
+                        borderRadius: "10px",
+                        padding: "32px",
+                        gap: "32px",
+                        boxShadow: 2,
+                        p: 4,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        overflow: "scroll",
+                        marginBottom: "50px",
+                      }}
+                    >
+                      <Stack
+                        sx={{ height: "63px", width: "413px", gap: "11px" }}
+                      >
+                        <Typography
+                          sx={{
+                            color: "#024FAA",
+                            fontFamily: "Onest",
+                            fontWeight: 600,
+                            fontSize: "18px",
+                          }}
+                        >
+                          Book For?
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: "#73787E",
+                            fontFamily: "Onest",
+                            fontWeight: 400,
+                            fontSize: "16px",
+                          }}
+                        >
+                          Select Patient for the care
+                        </Typography>
+                      </Stack>
+                      <Stack
+                        sx={{
+                          height: "206px",
+                          width: "413px",
+                          gap: "12px",
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            height: "132px",
+                            width: "413px",
+                            gap: "8px",
+                            padding: "16px",
+                            border: "1px Solid #F2F4F7",
+                            borderRadius: "8px",
+                          }}
+                        >
+                          <Stack
+                            sx={{
+                              height: "100px",
+                              width: "381px",
+                              gap: "20px",
+                              display: "flex",
+                              flexDirection: "row",
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                height: "80px",
+                                width: "80px",
+                                Border: "1.5px Solid #FC9155",
+                              }}
+                            >
+                              <img
+                                src={Dp}
+                                alt="Profile"
+                                style={{
+                                  width: "80px",
+                                  height: "80px",
+                                  Border: "1px Solid #FC9155",
+                                  borderRadius: "12px",
+                                }}
+                              />
+                            </Box>
+                            <Stack
+                              sx={{
+                                width: "713px",
+                                height: "128px",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "8px",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  fontSize: "14px",
+                                  fontWeight: 400,
+                                  fontFamily: "Onest",
+                                  color: "#101828",
+                                }}
+                              >
+                                PART-TIME
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "20px",
+                                  fontWeight: 700,
+                                  fontFamily: "Onest",
+                                  color: "#101828",
+                                }}
+                              >
+                                Paula Mora
+                              </Typography>
+                              <Typography
+                                sx={{ display: "flex", flexDirection: "row" }}
+                              >
+                                <Rating
+                                  name="no-value"
+                                  value={value}
+                                  onChange={(event, newValue) => {
+                                    setValue(newValue);
+                                  }}
+                                />
+                                (5)
+                              </Typography>
+                              <Stack
+                                sx={{
+                                  height: "24px",
+                                  width: "713px",
+                                  gap: "4px",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    fontFamily: "Onest",
+                                    color: "#667085",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                  }}
+                                >
+                                  <img
+                                    src={Tick}
+                                    alt="Shield Tick"
+                                    height="24px"
+                                    width="24px"
+                                  />
+                                  Background check done
+                                </Typography>
+                              </Stack>
+                            </Stack>
+                          </Stack>
+                        </Box>
+                        <Box
+                          sx={{
+                            height: "413px",
+                            width: "62px",
+                            borderRadius: "8px",
+                            border: "1px Solid #F2F4F7",
+                            gap: "8px",
+                            padding: "16px",
+                          }}
+                        >
+                          <Stack
+                            sx={{ height: "30px", width: "381px", gap: "8px" }}
+                          >
+                            <Typography
+                              sx={{
+                                color: "#101828",
+                                fontSize: "20px",
+                                fontWeight: 700,
+                                fontFamily: "Onest",
+                              }}
+                            >
+                              {" "}
+                              $59/hr
+                            </Typography>
+                          </Stack>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "413px",
+                            height: "188px",
+                            border: "1px Solid #F2F4F7",
+                            borderRadius: "8px",
+                            padding: "16px",
+                            gap: "20px",
+                          }}
+                        >
+                          <Stack
+                            sx={{
+                              width: "381px",
+                              height: "70px",
+                              gap: "6px",
+                              display: "flex",
+                              flexDirection: "column",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                color: "#344054",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                fontFamily: "Onest",
+                              }}
+                            >
+                              Booking Date
+                            </Typography>
+                            <Stack sx={{ gap: "6px" }}>
+                              <TextField
+                                Variant="Outlined"
+                                placeholder="Select Date"
+                                sx={{
+                                  color: "#667085",
+                                  "& .MuiOutlinedInput-root": {
+                                    border: "1px #475467",
+                                    borderRadius: "12px",
+                                    height: "44px",
+                                    width: "381px",
+                                    gap: "8px",
+                                    paddingTop: "10px",
+                                    paddingBottom: "10px",
+                                    paddingLeft: "14px",
+                                    paddingRight: "14px",
+                                  },
+                                }}
+                                InputProps={{
+                                  startAdornment: (
+                                    <InputAdornment position="start">
+                                      <img
+                                        src={Calender}
+                                        alt="lock"
+                                        height="20px"
+                                        width="20px"
+                                      />
+                                    </InputAdornment>
+                                  ),
+                                }}
+                              />
+                            </Stack>
+                          </Stack>
+                          <Stack
+                            sx={{
+                              color: "#344054",
+                              fontSize: "14px",
+                              fontFamily: "Onest",
+                              fontWeight: 500,
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "6px",
+                            }}
+                          >
+                            <Typography sx={{}}>Booking Time</Typography>
+                          </Stack>
+                          <Stack sx={{ display: "flex", flexDirection: "row" }}>
+                            <Box
+                              sx={{
+                                height: "40px",
+                                width: "89px",
+                                border: "1px Solid #F2F4F7",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingRight: "20px",
+                                paddingLeft: "20px",
+                                gap: "4px",
+                                borderRadius: "8px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                1:55 am
+                              </Typography>
+                            </Box>
+                            <Box
+                              sx={{
+                                height: "40px",
+                                width: "89px",
+                                border: "1px Solid #F2F4F7",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingRight: "20px",
+                                paddingLeft: "20px",
+                                gap: "4px",
+                                borderRadius: "8px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                2:55 am
+                              </Typography>
+                            </Box>
+                            <Box
+                              sx={{
+                                height: "40px",
+                                width: "89px",
+                                border: "1px Solid #F2F4F7",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingRight: "20px",
+                                paddingLeft: "20px",
+                                gap: "4px",
+                                borderRadius: "8px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                3:55 am
+                              </Typography>
+                            </Box>
+                            <Box
+                              sx={{
+                                height: "40px",
+                                width: "89px",
+                                border: "1px Solid #F2F4F7",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingRight: "20px",
+                                paddingLeft: "20px",
+                                gap: "4px",
+                                borderRadius: "8px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                4:55 am
+                              </Typography>
+                            </Box>
+                          </Stack>
+                        </Box>
+                        <Stack
+                          sx={{ height: "352px", width: "413px", gap: "16px" }}
+                        >
+                          <Box
+                            sx={{
+                              height: "76px",
+                              width: "413px",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              padding: "16px",
+                              boxShadow: "2px 2px 5px 0",
+                              display: "flex",
+                              flexDirection: "Column",
+                            }}
+                          >
+                            {" "}
+                            <Stack
+                              sx={{
+                                width: "310px",
+                                height: "44px",
+                                gap: "12px",
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              {" "}
+                              <Avatar
+                                sx={{
+                                  backgroundColor: "#D1E6FF",
+                                  color: "#024FAA",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  height: "32px",
+                                  width: "32px",
+                                }}
+                              >
+                                OR
+                              </Avatar>
+                              <Stack
+                                sx={{
+                                  height: "44px",
+                                  width: "266px",
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    color: "#101828",
+                                    fontFamily: "Onest",
+                                    fontWeight: 500,
+                                    fontSize: "16x",
+                                  }}
+                                >
+                                  Olivia Rhye
+                                </Typography>
+                                <Typography
+                                  sx={{
+                                    color: "#101828",
+                                    fontFamily: "Onest",
+                                    fontWeight: 400,
+                                    fontSize: "14x",
+                                  }}
+                                >
+                                  21 years
+                                </Typography>
+                              </Stack>
+                              <Stack
+                                sx={{
+                                  height: "20px",
+                                  width: "67px",
+                                  gap: "4px",
+                                  display: "flex",
+                                  flexDirection: "row",
+                                }}
+                              >
+                                <img
+                                  src={Woman}
+                                  alt="woman"
+                                  height="16px"
+                                  width="16px"
+                                />
+                                <Typography
+                                  sx={{
+                                    color: "#667085",
+                                    fontFamily: "Onest",
+                                    fontWeight: 400,
+                                    fontSize: "14x",
+                                  }}
+                                >
+                                  Female
+                                </Typography>
+                              </Stack>
+                            </Stack>
+                          </Box>
+                        </Stack>
+                      </Stack>
                     </Box>
                   </Modal>
                 </div>
@@ -560,7 +1033,7 @@ function Profile() {
                   color: "#98A2B3",
                   display: "flex",
                   flexDirection: "row",
-                  gap: "5px",
+                  gap: "4px",
                 }}
               >
                 <img src={Clock} alt="clock" height="20px" width="20px" />
@@ -838,7 +1311,7 @@ function Profile() {
             sx={{
               width: "1066px",
               height: "204px",
-              gap: "30px",              
+              gap: "30px",
               backgroundColor: "white",
               display: "flex",
               flexDirection: "row",
@@ -853,141 +1326,145 @@ function Profile() {
                 flexDirection: "column",
               }}
             >
-              <Box sx={{
-                width: "518px",
-                height: "204px",
-                gap: "8px",
-                padding:"16px",
+              <Box
+                sx={{
+                  width: "518px",
+                  height: "204px",
+                  gap: "8px",
+                  padding: "16px",
 
-                border: "1px solid #F2F4F7",
-                backgroundColor: "white",
-                display: "flex",
-                flexDirection: "column",
-                borderRadius:"8px"
-              }}><Typography
-                sx={{
-                  color: "#344054",
-                  fontFamily: "Onest",
-                  fontSize: "20px",
-                  fontWeight: 600,
-                }}
-              >
-                Highlights
-              </Typography>
-              <Stack
-                sx={{
-                  width: "486px",
-                  height: "126px",
-                  gap: "10px",
+                  border: "1px solid #F2F4F7",
+                  backgroundColor: "white",
                   display: "flex",
                   flexDirection: "column",
+                  borderRadius: "8px",
                 }}
               >
+                <Typography
+                  sx={{
+                    color: "#344054",
+                    fontFamily: "Onest",
+                    fontSize: "20px",
+                    fontWeight: 600,
+                  }}
+                >
+                  Highlights
+                </Typography>
                 <Stack
                   sx={{
                     width: "486px",
-                    height: "24px",
-                    gap: "8px",
+                    height: "126px",
+                    gap: "10px",
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
                   }}
                 >
-                  <img
-                    src={Check}
-                    alt="checkSymbol"
-                    height="16px"
-                    width="16px"
-                  />
-                  <Typography
+                  <Stack
                     sx={{
-                      color: "#344054",
-                      fontFamily: "Onest",
-                      fontSize: "16px",
-                      fontWeight: 600,
+                      width: "486px",
+                      height: "24px",
+                      gap: "8px",
+                      display: "flex",
+                      flexDirection: "row",
                     }}
                   >
-                    Comfortable with pats
-                  </Typography>
-                </Stack>
-                <Stack
-                  sx={{
-                    width: "486px",
-                    height: "24px",
-                    gap: "8px",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  <img
-                    src={Check}
-                    alt="checkSymbol"
-                    height="16px"
-                    width="16px"
-                  />
-                  <Typography
+                    <img
+                      src={Check}
+                      alt="checkSymbol"
+                      height="16px"
+                      width="16px"
+                    />
+                    <Typography
+                      sx={{
+                        color: "#344054",
+                        fontFamily: "Onest",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Comfortable with pats
+                    </Typography>
+                  </Stack>
+                  <Stack
                     sx={{
-                      color: "#344054",
-                      fontFamily: "Onest",
-                      fontSize: "16px",
-                      fontWeight: 600,
+                      width: "486px",
+                      height: "24px",
+                      gap: "8px",
+                      display: "flex",
+                      flexDirection: "row",
                     }}
                   >
-                    Non-Smoker
-                  </Typography>
-                </Stack>
-                <Stack
-                  sx={{
-                    width: "486px",
-                    height: "24px",
-                    gap: "8px",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  <img
-                    src={Check}
-                    alt="checkSymbol"
-                    height="16px"
-                    width="16px"
-                  />
-                  <Typography
+                    <img
+                      src={Check}
+                      alt="checkSymbol"
+                      height="16px"
+                      width="16px"
+                    />
+                    <Typography
+                      sx={{
+                        color: "#344054",
+                        fontFamily: "Onest",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Non-Smoker
+                    </Typography>
+                  </Stack>
+                  <Stack
                     sx={{
-                      color: "#344054",
-                      fontFamily: "Onest",
-                      fontSize: "16px",
-                      fontWeight: 600,
+                      width: "486px",
+                      height: "24px",
+                      gap: "8px",
+                      display: "flex",
+                      flexDirection: "row",
                     }}
                   >
-                    Alzheimers or dementia experince
-                  </Typography>
-                </Stack>
-                <Stack
-                  sx={{
-                    width: "486px",
-                    height: "24px",
-                    gap: "8px",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  <img
-                    src={Check}
-                    alt="checkSymbol"
-                    height="16px"
-                    width="16px"
-                  />
-                  <Typography
+                    <img
+                      src={Check}
+                      alt="checkSymbol"
+                      height="16px"
+                      width="16px"
+                    />
+                    <Typography
+                      sx={{
+                        color: "#344054",
+                        fontFamily: "Onest",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Alzheimers or dementia experince
+                    </Typography>
+                  </Stack>
+                  <Stack
                     sx={{
-                      color: "#344054",
-                      fontFamily: "Onest",
-                      fontSize: "16px",
-                      fontWeight: 600,
+                      width: "486px",
+                      height: "24px",
+                      gap: "8px",
+                      display: "flex",
+                      flexDirection: "row",
                     }}
                   >
-                    Hospice experience
-                  </Typography>
+                    <img
+                      src={Check}
+                      alt="checkSymbol"
+                      height="16px"
+                      width="16px"
+                    />
+                    <Typography
+                      sx={{
+                        color: "#344054",
+                        fontFamily: "Onest",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Hospice experience
+                    </Typography>
+                  </Stack>
                 </Stack>
-              </Stack></Box>
+              </Box>
             </Stack>
             <Stack
               sx={{
@@ -998,69 +1475,71 @@ function Profile() {
                 flexDirection: "column",
               }}
             >
-              <Box sx={{
-                width: "518px",
-                height: "204px",
-                gap: "8px",
-                padding:"16px",
-                border: "1px solid #F2F4F7",
-                backgroundColor: "white",
-                display: "flex",
-                flexDirection: "column",
-                borderRadius:"8px"
-              }}>
-              <Typography
+              <Box
                 sx={{
-                  color: "#344054",
-                  fontFamily: "Onest",
-                  fontSize: "20px",
-                  fontWeight: 600,
+                  width: "518px",
+                  height: "204px",
+                  gap: "8px",
+                  padding: "16px",
+                  border: "1px solid #F2F4F7",
+                  backgroundColor: "white",
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "8px",
                 }}
               >
-                Can also with
-              </Typography>
-              <List marker="disc" sx={{height:"126px",width:"486px"}}>
-                <ListItem
+                <Typography
                   sx={{
-                    color: "#667085",
+                    color: "#344054",
                     fontFamily: "Onest",
-                    fontSize: "16px",
+                    fontSize: "20px",
                     fontWeight: 600,
                   }}
                 >
-                  Bathing
-                </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#667085",
-                    fontFamily: "Onest",
-                    fontSize: "16px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Live in Home Care
-                </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#667085",
-                    fontFamily: "Onest",
-                    fontSize: "16px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Personal Care
-                </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#667085",
-                    fontFamily: "Onest",
-                    fontSize: "16px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Covid Safety
-                </ListItem>
-              </List>
+                  Can also with
+                </Typography>
+                <List marker="disc" sx={{ height: "126px", width: "486px" }}>
+                  <ListItem
+                    sx={{
+                      color: "#667085",
+                      fontFamily: "Onest",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Bathing
+                  </ListItem>
+                  <ListItem
+                    sx={{
+                      color: "#667085",
+                      fontFamily: "Onest",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Live in Home Care
+                  </ListItem>
+                  <ListItem
+                    sx={{
+                      color: "#667085",
+                      fontFamily: "Onest",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Personal Care
+                  </ListItem>
+                  <ListItem
+                    sx={{
+                      color: "#667085",
+                      fontFamily: "Onest",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Covid Safety
+                  </ListItem>
+                </List>
               </Box>
             </Stack>
           </Stack>
