@@ -31,6 +31,7 @@ import Dates from "../assests/DAte.png";
 import Clock from "../assests/clock 1.png";
 import Check from "../assests/check-circle 1.png";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
   //   const [lang, setLang] = React.useState("");
@@ -41,7 +42,7 @@ function Profile() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const navigate=useNavigate();
   return (
     <>
       <AppBar
@@ -273,8 +274,7 @@ function Profile() {
                     height: "145px",
                     width: "145px",
                     borderRadius: "12px",
-                    border: "1.5px",
-                    backgroundColor: "#FC9155",
+                    border: "1.5px Solid #FC9155"
                   }}
                 >
                   <img
@@ -854,9 +854,102 @@ function Profile() {
                               </Stack>
                             </Stack>
                           </Box>
+                          <Box
+                            sx={{
+                              height: "76px",
+                              width: "413px",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              padding: "16px",
+                              boxShadow: "2px 2px 5px 0",
+                              display: "flex",
+                              flexDirection: "Column",
+                            }}
+                          >
+                            {" "}
+                            <Stack
+                              sx={{
+                                width: "310px",
+                                height: "44px",
+                                gap: "12px",
+                                display: "flex",
+                                flexDirection: "row",
+                              }}
+                            >
+                              {" "}
+                              <Avatar
+                                sx={{
+                                  backgroundColor: "#D1E6FF",
+                                  color: "#024FAA",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  height: "32px",
+                                  width: "32px",
+                                }}
+                              >
+                                OR
+                              </Avatar>
+                              <Stack
+                                sx={{
+                                  height: "44px",
+                                  width: "266px",
+                                  display: "flex",
+                                  flexDirection: "column",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    color: "#101828",
+                                    fontFamily: "Onest",
+                                    fontWeight: 500,
+                                    fontSize: "16x",
+                                  }}
+                                >
+                                  Olivia Rhye
+                                </Typography>
+                                <Typography
+                                  sx={{
+                                    color: "#101828",
+                                    fontFamily: "Onest",
+                                    fontWeight: 400,
+                                    fontSize: "14x",
+                                  }}
+                                >
+                                  21 years
+                                </Typography>
+                              </Stack>
+                              <Stack
+                                sx={{
+                                  height: "20px",
+                                  width: "67px",
+                                  gap: "4px",
+                                  display: "flex",
+                                  flexDirection: "row",
+                                }}
+                              >
+                                <img
+                                  src={Woman}
+                                  alt="woman"
+                                  height="16px"
+                                  width="16px"
+                                />
+                                <Typography
+                                  sx={{
+                                    color: "#667085",
+                                    fontFamily: "Onest",
+                                    fontWeight: 400,
+                                    fontSize: "14x",
+                                  }}
+                                >
+                                  Female
+                                </Typography>
+                              </Stack>
+                            </Stack>
+                          </Box>
                         </Stack>
                       </Stack>
                     </Box>
+                    <Button onClick={()=>navigate("/Bookings")}>Book</Button>
                   </Modal>
                 </div>
               </Stack>
