@@ -11,12 +11,12 @@ function App() {
       {/* <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<Profile />} /> */}
-          {/* <Route path="/" element={<Payments/>} />
+      {/* <Route path="/" element={<Payments/>} />
         </Routes> */}
       {/* </BrowserRouter> */}
-       {/* */} 
-       
-      <Profile2/>
+      {/* */}
+
+      <Profile2 />
     </>
   );
 }
