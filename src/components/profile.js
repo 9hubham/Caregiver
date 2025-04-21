@@ -34,15 +34,15 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
-  //   const [lang, setLang] = React.useState("");
-  //   const handleChange = (event) => {
-  //     setLang(event.target.value);
-  //   };
+  // const [lang, setLang] = React.useState("");
+  // const handleChange = (event) => {
+  //   setLang(event.target.value);
+  // };
   const [value, setValue] = React.useState(0);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <AppBar
@@ -274,7 +274,7 @@ function Profile() {
                     height: "145px",
                     width: "145px",
                     borderRadius: "12px",
-                    border: "1.5px Solid #FC9155"
+                    border: "1.5px Solid #FC9155",
                   }}
                 >
                   <img
@@ -949,7 +949,7 @@ function Profile() {
                         </Stack>
                       </Stack>
                     </Box>
-                    <Button onClick={()=>navigate("/Bookings")}>Book</Button>
+                    <Button onClick={() => navigate("/Bookings")}>Book</Button>
                   </Modal>
                 </div>
               </Stack>

@@ -17,6 +17,8 @@ import Down from "../assests/chevron-down.png";
 import Search from "../assests/search 1.png";
 import "@fontsource-variable/onest";
 import Dp from "../assests/dp.png";
+import Profile1 from "../assests/profile(1).png"
+import Alex from "../assests/profile(2).png"
 
 function Bookings() {
   return (
@@ -384,7 +386,7 @@ function Bookings() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Profile1}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -496,7 +498,231 @@ function Bookings() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Dp}
+                alt="Profile"
+                style={{
+                  width: "64px",
+                  height: "64px",
+                  borderRadius: "12px",
+                  border: "1.5px Solid #FC9155",
+                }}
+              />
+            </Box>
+            <Stack
+              sx={{
+                height: "52px",
+                width: "834px",
+                gap: "8px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                marginTop: "5px",
+              }}
+            >
+              <Stack
+                sx={{
+                  height: "24px",
+
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontWeight: 500,
+                    fontFamily: "Onest",
+                    fontSize: "16px",
+                  }}
+                >
+                  Paula Mora
+                </Typography>
+              </Stack>
+              <Stack
+                sx={{
+                  height: "20px",
+
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontWeight: 400,
+                    fontFamily: "Onest",
+                    fontSize: "14px",
+                  }}
+                >
+                  Oct 17, 2023 1:55 am
+                </Typography>
+              </Stack>
+            </Stack>
+
+            <Stack
+              sx={{
+                display: "flex",
+                marginLeft: "50px",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  height: 64,
+                  width: 56,
+                  border: "1px Solid #F2F4F7",
+                  paddingTop: "4px",
+                  paddingRight: "15px",
+                  paddingBottom: "4px",
+                  paddingLeft: "14px",
+                  gap: "4px",
+                  display: "flex",
+                  boxShadow: "2px 0px 15px 0.05px #0000000D",
+                  borderRadius: "8px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Stack sx={{}}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: "14px",
+                      fontFamily: "Onest",
+                      color: "#475467",
+                    }}
+                  >
+                    Call
+                  </Typography>
+                </Stack>
+              </Box>
+            </Stack>
+          </Stack>
+          <Stack
+            sx={{
+              height: "96px",
+              width: "1066px",
+              borderRadius: "8px",
+              padding: "16px",
+              gap: "8px",
+              border: "1px Solid #F2F4F7",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <Box>
+              <img
+                src={Alex}
+                alt="Profile"
+                style={{
+                  width: "64px",
+                  height: "64px",
+                  borderRadius: "12px",
+                  border: "1.5px Solid #FC9155",
+                }}
+              />
+            </Box>
+            <Stack
+              sx={{
+                height: "52px",
+                width: "834px",
+                gap: "8px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                marginTop: "5px",
+              }}
+            >
+              <Stack
+                sx={{
+                  height: "24px",
+
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontWeight: 500,
+                    fontFamily: "Onest",
+                    fontSize: "16px",
+                  }}
+                >
+                  Alex Buckmaster
+                </Typography>
+              </Stack>
+              <Stack
+                sx={{
+                  height: "20px",
+
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontWeight: 400,
+                    fontFamily: "Onest",
+                    fontSize: "14px",
+                  }}
+                >
+                  Oct 17, 2023 1:55 am
+                </Typography>
+              </Stack>
+            </Stack>
+
+            <Stack
+              sx={{
+                display: "flex",
+                marginLeft: "50px",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  height: 64,
+                  width: 56,
+                  border: "1px Solid #F2F4F7",
+                  paddingTop: "4px",
+                  paddingRight: "15px",
+                  paddingBottom: "4px",
+                  paddingLeft: "14px",
+                  gap: "4px",
+                  display: "flex",
+                  boxShadow: "2px 0px 15px 0.05px #0000000D",
+                  borderRadius: "8px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Stack sx={{}}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: "14px",
+                      fontFamily: "Onest",
+                      color: "#475467",
+                    }}
+                  >
+                    Call
+                  </Typography>
+                </Stack>
+              </Box>
+            </Stack>
+          </Stack>
+          <Stack
+            sx={{
+              height: "96px",
+              width: "1066px",
+              borderRadius: "8px",
+              padding: "16px",
+              gap: "8px",
+              border: "1px Solid #F2F4F7",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <Box>
+              <img
+                src={Profile1}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -608,7 +834,7 @@ function Bookings() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Alex}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -644,7 +870,7 @@ function Bookings() {
                     fontSize: "16px",
                   }}
                 >
-                  Stephanie Sharkey
+                  Alex Buckmaster
                 </Typography>
               </Stack>
               <Stack
@@ -720,7 +946,7 @@ function Bookings() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Dp}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -756,7 +982,7 @@ function Bookings() {
                     fontSize: "16px",
                   }}
                 >
-                  Stephanie Sharkey
+                  Paula Mora
                 </Typography>
               </Stack>
               <Stack
@@ -832,231 +1058,7 @@ function Bookings() {
           >
             <Box>
               <img
-                src={Profileimg}
-                alt="Profile"
-                style={{
-                  width: "64px",
-                  height: "64px",
-                  borderRadius: "12px",
-                  border: "1.5px Solid #FC9155",
-                }}
-              />
-            </Box>
-            <Stack
-              sx={{
-                height: "52px",
-                width: "834px",
-                gap: "8px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                marginTop: "5px",
-              }}
-            >
-              <Stack
-                sx={{
-                  height: "24px",
-
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontWeight: 500,
-                    fontFamily: "Onest",
-                    fontSize: "16px",
-                  }}
-                >
-                  Stephanie Sharkey
-                </Typography>
-              </Stack>
-              <Stack
-                sx={{
-                  height: "20px",
-
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontWeight: 400,
-                    fontFamily: "Onest",
-                    fontSize: "14px",
-                  }}
-                >
-                  Oct 17, 2023 1:55 am
-                </Typography>
-              </Stack>
-            </Stack>
-
-            <Stack
-              sx={{
-                display: "flex",
-                marginLeft: "50px",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  height: 64,
-                  width: 56,
-                  border: "1px Solid #F2F4F7",
-                  paddingTop: "4px",
-                  paddingRight: "15px",
-                  paddingBottom: "4px",
-                  paddingLeft: "14px",
-                  gap: "4px",
-                  display: "flex",
-                  boxShadow: "2px 0px 15px 0.05px #0000000D",
-                  borderRadius: "8px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Stack sx={{}}>
-                  <Typography
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: "14px",
-                      fontFamily: "Onest",
-                      color: "#475467",
-                    }}
-                  >
-                    Call
-                  </Typography>
-                </Stack>
-              </Box>
-            </Stack>
-          </Stack>
-          <Stack
-            sx={{
-              height: "96px",
-              width: "1066px",
-              borderRadius: "8px",
-              padding: "16px",
-              gap: "8px",
-              border: "1px Solid #F2F4F7",
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <Box>
-              <img
-                src={Profileimg}
-                alt="Profile"
-                style={{
-                  width: "64px",
-                  height: "64px",
-                  borderRadius: "12px",
-                  border: "1.5px Solid #FC9155",
-                }}
-              />
-            </Box>
-            <Stack
-              sx={{
-                height: "52px",
-                width: "834px",
-                gap: "8px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                marginTop: "5px",
-              }}
-            >
-              <Stack
-                sx={{
-                  height: "24px",
-
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontWeight: 500,
-                    fontFamily: "Onest",
-                    fontSize: "16px",
-                  }}
-                >
-                  Stephanie Sharkey
-                </Typography>
-              </Stack>
-              <Stack
-                sx={{
-                  height: "20px",
-
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-                <Typography
-                  sx={{
-                    fontWeight: 400,
-                    fontFamily: "Onest",
-                    fontSize: "14px",
-                  }}
-                >
-                  Oct 17, 2023 1:55 am
-                </Typography>
-              </Stack>
-            </Stack>
-
-            <Stack
-              sx={{
-                display: "flex",
-                marginLeft: "50px",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  height: 64,
-                  width: 56,
-                  border: "1px Solid #F2F4F7",
-                  paddingTop: "4px",
-                  paddingRight: "15px",
-                  paddingBottom: "4px",
-                  paddingLeft: "14px",
-                  gap: "4px",
-                  display: "flex",
-                  boxShadow: "2px 0px 15px 0.05px #0000000D",
-                  borderRadius: "8px",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Stack sx={{}}>
-                  <Typography
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: "14px",
-                      fontFamily: "Onest",
-                      color: "#475467",
-                    }}
-                  >
-                    Call
-                  </Typography>
-                </Stack>
-              </Box>
-            </Stack>
-          </Stack>
-          <Stack
-            sx={{
-              height: "96px",
-              width: "1066px",
-              borderRadius: "8px",
-              padding: "16px",
-              gap: "8px",
-              border: "1px Solid #F2F4F7",
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <Box>
-              <img
-                src={Profileimg}
+                src={Profile1}
                 alt="Profile"
                 style={{
                   width: "64px",

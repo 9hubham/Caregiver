@@ -15,6 +15,15 @@ import Logo from "../assests/logo.png";
 import Arrow from "../assests/arrow-down.png";
 import Down from "../assests/chevron-down.png";
 import Search from "../assests/search 1.png";
+import Kimberly from "../assests/profile(3).png";
+import Judith from "../assests/profile(4).png"
+import Alex from "../assests/profile(2).png";
+import Corina from "../assests/profile(5).png";
+import Katie from "../assests/profile(6).png";
+import Paula from "../assests/profile(7).png";
+import Stephanie from "../assests/profile(1).png";
+import Nicol from "../assests/profile(8).png";
+import Kurt from "../assests/profile(9).png";
 
 function Payments() {
   return (
@@ -224,7 +233,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Kimberly}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -260,7 +269,7 @@ function Payments() {
                     fontSize: "16px",
                   }}
                 >
-                  Stephanie Sharkey
+                  Kimberly Mastrangelo
                 </Typography>
               </Stack>
               <Stack
@@ -336,7 +345,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Judith}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -448,7 +457,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Alex}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -560,7 +569,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Corina}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -672,7 +681,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Katie}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -784,7 +793,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Paula}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -896,7 +905,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Stephanie}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -1008,7 +1017,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Nicol}
                 alt="Profile"
                 style={{
                   width: "64px",
@@ -1120,7 +1129,7 @@ function Payments() {
           >
             <Box>
               <img
-                src={Profileimg}
+                src={Kurt}
                 alt="Profile"
                 style={{
                   width: "64px",
