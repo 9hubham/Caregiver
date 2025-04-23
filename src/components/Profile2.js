@@ -11,11 +11,7 @@ import {
   InputAdornment,
   Avatar,
 } from "@mui/material";
-import Profileimg from "../assests/profileimg.png";
-import Logo from "../assests/logo.png";
-import Arrow from "../assests/arrow-down.png";
-import Down from "../assests/chevron-down.png";
-import Search from "../assests/search 1.png";
+
 import React from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -38,11 +34,13 @@ function Profile2() {
       editable: true,
       items: ["Improvement of Heath Fitness", "Covid 19 recovery"],
       useCheckIcon: true,
+      route: "/myCondition"
     },
     {
       title: "Special Needs",
       editable: true,
       items: ["Bathing", "Walk on morning", "Personal care"],
+      route: "/specialNeeds"
     },
     {
       title: "Services I need",
@@ -52,173 +50,12 @@ function Profile2() {
         "Domestic Assistance",
         "Out and About Transport",
       ],
+      route: "/servicesneed"
     },
   ];
   return (
     <>
-      <AppBar
-        sx={{
-          backgroundColor: "white",
-          boxShadow: "none",
-        }}
-      >
-        <Toolbar
-          sx={{
-            display: "flex",
-          }}
-        >
-          <Box>
-            <Box
-              sx={{
-                gap: "20px",
-                borderRadius: "12px",
-                paddingTop: "10px",
-                paddingRight: "14px",
-                paddingLeft: "14px",
-                paddingBottom: "10px",
-                border: "10px",
-                borderColor: "Black",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <img src={Logo} alt="lock" height="45px" width="135px" />
-
-              <Stack sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography
-                  sx={{
-                    fontWeight: 500,
-                    fontSize: "12px",
-                    fontFamily: "Onest",
-                    textTransform: "none",
-                    color: "#FC9155",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  Your location
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#344054",
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    fontFamily: "Onest",
-                  }}
-                >
-                  Thane, Mumbai
-                  <img src={Arrow} alt="lock" height="24px" width="24px" />
-                </Typography>
-              </Stack>
-            </Box>
-          </Box>
-
-          <Stack
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "34px",
-              marginLeft: "400px",
-            }}
-          >
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Home
-              </Typography>
-            </Button>
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Appointment
-              </Typography>
-            </Button>
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Payments
-              </Typography>
-            </Button>
-            <FormControl
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment>
-                    <img src={Down} alt="lock" height="20px" width="20px" />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "60px",
-                  height: "48px",
-                  width: "84px",
-                  gap: "12px",
-                  padding: "12px",
-                },
-              }}
-            >
-              <Select>
-                <MenuItem value={"English"}>English</MenuItem>
-                <MenuItem value={"Malaysian"}>Malaysian</MenuItem>
-                <MenuItem value={"Thau"}>Thau</MenuItem>
-                <MenuItem value={"Indonesian"}>Indonesian</MenuItem>
-              </Select>
-            </FormControl>
-            <Button>
-              {" "}
-              <img src={Search} alt="Profile icon" height="24px" width="24px" />
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                gap: "14px",
-                borderRadius: "40px",
-                height: "52px",
-                width: "138px",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <img
-                src={Profileimg}
-                alt="Profil icon"
-                height="24px"
-                width="24px"
-              />
-              <Typography
-                sx={{
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  fontFamily: "Onest",
-                }}
-              >
-                John Doe
-              </Typography>
-            </Button>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+      
       <Box
         sx={{
           width: "1142px",
@@ -491,6 +328,7 @@ function Profile2() {
                       cursor: "pointer",
                       fontFamily: "Onest",
                     }}
+                    onClick={() => navigate(card.route)}
                   >
                     Edit
                   </Typography>
@@ -582,7 +420,9 @@ function Profile2() {
                 color: "#024FAA",
                 display: "flex",
                 marginLeft: "100px",
+                cursor: "pointer",
               }}
+              onClick={() => navigate("/familyMemberCard")}
             >
               Add new member
             </Typography>
@@ -812,7 +652,9 @@ function Profile2() {
                 color: "#024FAA",
                 display: "flex",
                 marginLeft: "200px",
+                cursor: "pointer",
               }}
+              onClick={() => navigate("/addpaymentdetails")}
             >
               Add new
             </Typography>
@@ -826,7 +668,9 @@ function Profile2() {
                 padding: "16px",
                 gap: "4px",
                 boxShadow: "2px 2px 15px 0px #0000000D",
+                cursor: "pointer",
               }}
+              onClick={() => navigate("/editpaymentdetails")}
             >
               <Stack
                 sx={{
@@ -929,7 +773,9 @@ function Profile2() {
                 padding: "16px",
                 gap: "4px",
                 boxShadow: "2px 2px 15px 0px #0000000D",
+                cursor: "pointer",
               }}
+              onClick={() => navigate("/editpaymentdetails")}
             >
               <Stack
                 sx={{

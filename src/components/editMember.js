@@ -29,426 +29,129 @@ function Member() {
   };
   const navigate = useNavigate();
   return (
-    <>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Box
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box sx={{ width: "500px" }}>
+        <Stack
           sx={{
-            width: "500px",
-            height: "995px",
+            padding: "0 24px",
+            height: "100px",
+            justifyContent: "center",
           }}
         >
-          <Stack
+          <Typography
             sx={{
-              gap: "10px",
-              paddingTop: "16px",
-              paddingRight: "24px",
-              paddingBottom: "16px",
-              paddingLeft: "24px",
-              height: "116px",
-              width: "500px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
+              fontSize: "32px",
+              fontWeight: 600,
+              color: "#101828",
+              fontFamily: "onest",
             }}
           >
+            Edit Member Details
+          </Typography>
+        </Stack>
+
+        <Stack
+          sx={{
+            width: "100%",
+            gap: "20px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <img src={Profile} alt="profile" width="100px" height="97px" />
+          </Box>
+
+          {[
+            { label: "Full Name", placeholder: "Enter Full name", icon: Image },
+            { label: "Date of Birth", placeholder: "DD//MM//YY", icon: Calender },
+            { label: "Mobile number", placeholder: "Enter Mobile number", icon: Call },
+            {
+              label: "Emergency Mobile number",
+              placeholder: "Enter Emergency Mobile number",
+              icon: Call,
+            },
+          ].map(({ label, placeholder, icon }, idx) => (
+            <Stack key={idx} sx={{ gap: "6px", width: "100%", maxWidth: "420px" }}>
+              <Typography
+                sx={{
+                  fontFamily: "onest",
+                  fontWeight: 500,
+                  fontSize: "14px",
+                  color: "_Gray/700",
+                }}
+              >
+                {label}
+              </Typography>
+              <TextField
+                variant="outlined"
+                placeholder={placeholder}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "12px",
+                    height: "44px",
+                    paddingX: "14px",
+                    borderColor: "#475467",
+                  },
+                }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <img src={icon} alt="icon" height="20px" width="20px" />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Stack>
+          ))}
+
+          <Stack sx={{ width: "100%", maxWidth: "420px", gap: "6px" }}>
             <Typography
               sx={{
-                fontSize: "36px",
-                fontWeight: 600,
-                color: "#101828",
                 fontFamily: "onest",
+                fontWeight: 500,
+                fontSize: "14px",
+                color: "_Gray/700",
               }}
             >
-              Edit Member Details
+              Gender
             </Typography>
+            <RadioGroup sx={{ flexDirection: "row" }}>
+              {["Female", "Male", "Non-Binary"].map((gender) => (
+                <FormControlLabel
+                  key={gender}
+                  value={gender.toLowerCase()}
+                  label={gender}
+                  control={<Radio />}
+                />
+              ))}
+            </RadioGroup>
           </Stack>
 
-          <Stack
-            sx={{
-              width: "420px",
-              height: "1176px",
-              gap: "20px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "flex-start",
-            }}
-          >
-            <Box
+          <Stack sx={{ width: "100%", maxWidth: "420px", gap: "16px" }}>
+            <Button
+              variant="outlined"
               sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                borderRadius: "12px",
+                color: "#344054",
+                border: "1px solid #D0D5DD",
+                height: "55px",
+                justifyContent: "space-between",
+                paddingX: "16px",
+                backgroundColor: "#FFFFFF",
+                fontWeight: 500,
+                fontSize: "16px",
+                fontFamily: "Onest",
+                textTransform: "none",
               }}
             >
-              <img src={Profile} alt="profile" width="100px" height="97px" />
-            </Box>
-            <Stack sx={{ gap: "6px" }}>
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Full Name
-              </Typography>
-              <TextField
-                Variant="Outlined"
-                placeholder="Enter Full name"
-                sx={{
-                  borderRadius: "30px",
-                  "& .MuiOutlinedInput-root": {
-                    border: "1px",
-                    borderRadius: "12px",
-                    height: "44px",
-                    width: "420px",
-                    gap: "8px",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                    paddingLeft: "14px",
-                    paddingRight: "14px",
-                    borderColor: "#475467",
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <img src={Image} alt="lock" height="20px" width="20px" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Stack>
-            <Stack sx={{ gap: "6px" }}>
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Date of Birth
-              </Typography>
-              <TextField
-                Variant="Outlined"
-                placeholder="DD//MM//YY"
-                sx={{
-                  borderRadius: "30px",
-                  "& .MuiOutlinedInput-root": {
-                    border: "1px",
-                    borderRadius: "12px",
-                    height: "44px",
-                    width: "420px",
-                    gap: "8px",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                    paddingLeft: "14px",
-                    paddingRight: "14px",
-                    borderColor: "#475467",
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <img
-                        src={Calender}
-                        alt="lock"
-                        height="20px"
-                        width="20px"
-                      />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Stack>
-            <Stack sx={{ gap: "6px" }}>
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Mobile number
-              </Typography>
-              <TextField
-                Variant="Outlined"
-                placeholder="Enter Mobile number"
-                sx={{
-                  borderRadius: "30px",
-                  "& .MuiOutlinedInput-root": {
-                    border: "1px",
-                    borderRadius: "12px",
-                    height: "44px",
-                    width: "420px",
-                    gap: "8px",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                    paddingLeft: "14px",
-                    paddingRight: "14px",
-                    borderColor: "#475467",
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <img src={Call} alt="lock" height="20px" width="20px" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Stack>
-            <Stack sx={{ gap: "6px" }}>
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Emergency Mobile number
-              </Typography>
-              <TextField
-                Variant="Outlined"
-                placeholder="Enter Emergency Mobile number"
-                sx={{
-                  borderRadius: "30px",
-                  "& .MuiOutlinedInput-root": {
-                    border: "1px",
-                    borderRadius: "12px",
-                    height: "44px",
-                    width: "420px",
-                    gap: "8px",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                    paddingLeft: "14px",
-                    paddingRight: "14px",
-                    borderColor: "#475467",
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <img src={Call} alt="lock" height="20px" width="20px" />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </Stack>
-            <Stack sx={{ gap: "2px" }}>
-              {" "}
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Gender
-              </Typography>
-              <RadioGroup sx={{ display: "flex", flexDirection: "row" }}>
-                <FormControlLabel
-                  value="female"
-                  label="Female"
-                  control={<Radio />}
-                />
-                <FormControlLabel
-                  value="male"
-                  label="Male"
-                  control={<Radio />}
-                />
-                <FormControlLabel
-                  value="non-Binary"
-                  label="Non-Binary"
-                  control={<Radio />}
-                />
-              </RadioGroup>
-            </Stack>
-            <Stack sx={{ gap: "16px" }}>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: "12px",
-                  color: "#344054",
-                  border: "1px solid #D0D5DD",
-                  height: "55px",
-                  width: "420px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  paddingX: "16px",
-                  backgroundColor: "#FFFFFF",
-                  textTransform: "none",
-                  fontWeight: "500",
-                  fontSize: "16px",
-                  fontFamily: "Onest",
-                }}
-              >
-                Use my current location
-                <img
-                  src={location}
-                  alt="location icon"
-                  height="55px"
-                  width="120px"
-                />
-              </Button>
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Address line 1
-              </Typography>
-              <TextField
-                Variant="Outlined"
-                placeholder="Enter Address"
-                sx={{
-                  borderRadius: "30px",
-                  "& .MuiOutlinedInput-root": {
-                    border: "1px",
-                    borderRadius: "12px",
-                    height: "44px",
-                    width: "420px",
-                    gap: "8px",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                    paddingLeft: "14px",
-                    paddingRight: "14px",
-                    borderColor: "#475467",
-                  },
-                }}
-              />
-              <Typography
-                sx={{
-                  fontFamily: "onest",
-                  fontWeight: 500,
-                  fontSize: "14px",
-                  color: "_Gray/700",
-                }}
-              >
-                Address line 2
-              </Typography>
-              <TextField
-                Variant="Outlined"
-                placeholder="Enter Address"
-                sx={{
-                  borderRadius: "30px",
-                  "& .MuiOutlinedInput-root": {
-                    border: "1px",
-                    borderRadius: "12px",
-                    height: "44px",
-                    width: "420px",
-                    gap: "8px",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                    paddingLeft: "14px",
-                    paddingRight: "14px",
-                    borderColor: "#475467",
-                  },
-                }}
-              />
-              <Stack
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  height: "70px",
-                  width: "420px",
-                  gap: "20px",
-                }}
-              >
-                <Stack sx={{ height: "70px", width: "216px", gap: "6px" }}>
-                  <Typography
-                    sx={{
-                      fontFamily: "onest",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                      color: "_Gray/700",
-                    }}
-                  >
-                    City
-                  </Typography>
-                  <TextField
-                    Variant="Outlined"
-                    placeholder="Enter City"
-                    sx={{
-                      borderRadius: "30px",
-                      "& .MuiOutlinedInput-root": {
-                        border: "1px",
-                        borderRadius: "12px",
-                        height: "44px",
-                        width: "200px",
-                        gap: "8px",
-                        paddingTop: "10px",
-                        paddingBottom: "10px",
-                        paddingLeft: "14px",
-                        paddingRight: "14px",
-                        borderColor: "#475467",
-                      },
-                    }}
-                  />
-                </Stack>
-                <Stack sx={{ height: "70px", width: "216px", gap: "6px" }}>
-                  <Typography
-                    sx={{
-                      fontFamily: "onest",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                      color: "_Gray/700",
-                    }}
-                  >
-                    State
-                  </Typography>
-                  <FormControl
-                    sx={{
-                      borderRadius: "30px",
-                      "& .MuiOutlinedInput-root": {
-                        borderRadius: "12px",
-                        height: "44px",
-                        width: "200px",
-                        gap: "8px",
-                        paddingTop: "10px",
-                        paddingBottom: "10px",
-                        paddingLeft: "14px",
-                        paddingRight: "14px",
-                        borderColor: "#475467",
-                      },
-                    }}
-                  >
-                    <InputLabel>Select State</InputLabel>
-                    <Select
-                      value={state}
-                      onChange={handleChange}
-                      label="Select State"
-                    >
-                      <MenuItem value={"Andhrapradesh"}>Andhrapradesh</MenuItem>
-                      <MenuItem value={"Bihar"}>Bihar</MenuItem>
-                      <MenuItem value={"Goa"}>Goa</MenuItem>
-                      <MenuItem value={"Gujarat"}>Gujarat</MenuItem>
-                      <MenuItem value={"Kolkata"}>Kolkata</MenuItem>
-                      <MenuItem value={"Maharashtra"}>Maharashtra</MenuItem>
-                      <MenuItem value={"Uttarpradesh"}>Uttarpradesh</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Stack>
-              </Stack>
+              Use my current location
+              <img src={location} alt="location" height="40px" />
+            </Button>
 
-              <Stack sx={{ height: "70px", width: "216px", gap: "6px" }}>
+            {["Address line 1", "Address line 2"].map((label, idx) => (
+              <React.Fragment key={idx}>
                 <Typography
                   sx={{
                     fontFamily: "onest",
@@ -457,89 +160,155 @@ function Member() {
                     color: "_Gray/700",
                   }}
                 >
-                  Pin Code
+                  {label}
                 </Typography>
                 <TextField
-                  Variant="Outlined"
-                  placeholder="Enter pin code"
+                  variant="outlined"
+                  placeholder="Enter Address"
                   sx={{
-                    borderRadius: "30px",
                     "& .MuiOutlinedInput-root": {
-                      border: "1px",
                       borderRadius: "12px",
                       height: "44px",
-                      width: "420px",
-                      gap: "8px",
-                      paddingTop: "10px",
-                      paddingBottom: "10px",
-                      paddingLeft: "14px",
-                      paddingRight: "14px",
+                      paddingX: "14px",
+                      borderColor: "#475467",
+                    },
+                  }}
+                />
+              </React.Fragment>
+            ))}
+
+            <Stack direction="row" spacing={2}>
+              <Stack sx={{ width: "50%", gap: "6px" }}>
+                <Typography
+                  sx={{
+                    fontFamily: "onest",
+                    fontWeight: 500,
+                    fontSize: "14px",
+                    color: "_Gray/700",
+                  }}
+                >
+                  City
+                </Typography>
+                <TextField
+                  variant="outlined"
+                  placeholder="Enter City"
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "12px",
+                      height: "44px",
+                      paddingX: "14px",
                       borderColor: "#475467",
                     },
                   }}
                 />
               </Stack>
-            </Stack>
-            <Stack sx={{ display: "flex", flexDirection: "row", gap: "14px" }}>
-              <Button
-                variant="outlined"
-                sx={{
-                  color: "#024FAA",
-                  borderRadius: "40px",
-                  paddingtop: "16px",
-                  paddingBottom: "16px",
-                  paddingRight: "42px",
-                  paddingLeft: "42px",
-                  height: "52px",
-                  width: "203px",
-                  gap: "8px",
-                }}
-                onClick={() => navigate("/patientDetails")}
-              >
+              <Stack sx={{ width: "50%", gap: "6px" }}>
                 <Typography
                   sx={{
-                    fontSize: "14px",
+                    fontFamily: "onest",
                     fontWeight: 500,
-                    color: "#024FAA",
-                    fontFamily: "Onest,sans-serif",
-                    textTransform: "none",
+                    fontSize: "14px",
+                    color: "_Gray/700",
                   }}
                 >
-                  Cancel
+                  State
                 </Typography>
-              </Button>
-              <Button
-                variant="contained"
+                <FormControl fullWidth>
+                  <InputLabel>Select State</InputLabel>
+                  <Select value={state} onChange={handleChange} label="Select State">
+                    {[
+                      "Andhrapradesh",
+                      "Bihar",
+                      "Goa",
+                      "Gujarat",
+                      "Kolkata",
+                      "Maharashtra",
+                      "Uttarpradesh",
+                    ].map((s) => (
+                      <MenuItem key={s} value={s}>
+                        {s}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Stack>
+            </Stack>
+
+            <Stack sx={{ gap: "6px" }}>
+              <Typography
                 sx={{
-                  color: "#024FAA",
-                  borderRadius: "40px",
-                  paddingtop: "16px",
-                  paddingBottom: "16px",
-                  paddingRight: "42px",
-                  paddingLeft: "42px",
-                  height: "52px",
-                  width: "203px",
-                  gap: "8px",
+                  fontFamily: "onest",
+                  fontWeight: 500,
+                  fontSize: "14px",
+                  color: "_Gray/700",
                 }}
-                onClick={() => navigate("/patientDetails")}
               >
-                <Typography
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: 600,
-                    color: "#FFFFFF",
-                    fontFamily: "Onest,sans-serif",
-                    textTransform: "none",
-                  }}
-                >
-                  Save
-                </Typography>
-              </Button>
+                Pin Code
+              </Typography>
+              <TextField
+                variant="outlined"
+                placeholder="Enter pin code"
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "12px",
+                    height: "44px",
+                    paddingX: "14px",
+                    borderColor: "#475467",
+                  },
+                }}
+              />
             </Stack>
           </Stack>
-        </Box>
+
+          <Stack direction="row" spacing={2} mt={2}>
+            <Button
+              variant="outlined"
+              onClick={() => navigate("/patientDetails")}
+              sx={{
+                color: "#024FAA",
+                borderRadius: "40px",
+                width: "203px",
+                height: "52px",
+                textTransform: "none",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontFamily: "Onest,sans-serif",
+                }}
+              >
+                Cancel
+              </Typography>
+            </Button>
+
+            <Button
+              variant="contained"
+              onClick={() => navigate("/patientDetails")}
+              sx={{
+                color: "#fff",
+                backgroundColor: "#024FAA",
+                borderRadius: "40px",
+                width: "203px",
+                height: "52px",
+                textTransform: "none",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: 600,
+                  fontFamily: "Onest,sans-serif",
+                }}
+              >
+                Save
+              </Typography>
+            </Button>
+          </Stack>
+        </Stack>
       </Box>
-    </>
+    </Box>
   );
 }
 export default Member;

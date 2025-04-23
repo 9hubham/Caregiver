@@ -18,13 +18,10 @@ import {
   Avatar,
 } from "@mui/material";
 import Woman from "../assests/woman.png";
-import Profileimg from "../assests/profileimg.png";
-import Logo from "../assests/logo.png";
-import Arrow from "../assests/arrow-down.png";
+
 import Calender from "../assests/calendar 1(1).png";
 //import Lang from "../assests/language-square@2x.png";
-import Down from "../assests/chevron-down.png";
-import Search from "../assests/search 1.png";
+
 import Dp from "../assests/dp.png";
 import Tick from "../assests/shield-tick.png";
 import Dates from "../assests/DAte.png";
@@ -43,6 +40,15 @@ function Profile() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
+  const [navigateAfterClose, setNavigateAfterClose] = React.useState(null);
+
+  // Watch for modal close and trigger navigation
+  React.useEffect(() => {
+    if (!open && navigateAfterClose) {
+      navigate(navigateAfterClose);
+      setNavigateAfterClose(null); // Reset
+    }
+  }, [open, navigateAfterClose, navigate]);
 
   // Modal style
   const modalStyle = {
@@ -66,173 +72,6 @@ function Profile() {
 
   return (
     <>
-      <AppBar
-        sx={{
-          backgroundColor: "white",
-          boxShadow: "none",
-        }}
-      >
-        <Toolbar
-          sx={{
-            display: "flex",
-          }}
-        >
-          <Box>
-            <Box
-              sx={{
-                gap: "20px",
-                borderRadius: "12px",
-                paddingTop: "10px",
-                paddingRight: "14px",
-                paddingLeft: "14px",
-                paddingBottom: "10px",
-                border: "10px",
-                borderColor: "Black",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <img src={Logo} alt="lock" height="45px" width="135px" />
-
-              <Stack sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography
-                  sx={{
-                    fontWeight: 500,
-                    fontSize: "12px",
-                    fontFamily: "Onest",
-                    textTransform: "none",
-                    color: "#FC9155",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  Your location
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#344054",
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    fontFamily: "Onest",
-                  }}
-                >
-                  Thane, Mumbai
-                  <img src={Arrow} alt="lock" height="24px" width="24px" />
-                </Typography>
-              </Stack>
-            </Box>
-          </Box>
-
-          <Stack
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "34px",
-              marginLeft: "400px",
-            }}
-          >
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Home
-              </Typography>
-            </Button>
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Appointment
-              </Typography>
-            </Button>
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Payments
-              </Typography>
-            </Button>
-            <FormControl
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "60px",
-                  height: "48px",
-                  width: "84px",
-                  gap: "12px",
-                  padding: "12px",
-                },
-              }}
-            >
-              <Select
-                displayEmpty
-                defaultValue={"English"}
-                renderValue={(selected) => {
-                  return selected;
-                }}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <img src={Down} alt="lock" height="20px" width="20px" />
-                  </InputAdornment>
-                }
-              >
-                <MenuItem value={"English"}>English</MenuItem>
-                <MenuItem value={"Malaysian"}>Malaysian</MenuItem>
-                <MenuItem value={"Thau"}>Thau</MenuItem>
-                <MenuItem value={"Indonesian"}>Indonesian</MenuItem>
-              </Select>
-            </FormControl>
-            <Button>
-              {" "}
-              <img src={Search} alt="Profile icon" height="24px" width="24px" />
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                gap: "14px",
-                borderRadius: "40px",
-                height: "52px",
-                width: "138px",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <img
-                src={Profileimg}
-                alt="Profil icon"
-                height="24px"
-                width="24px"
-              />
-              <Typography
-                sx={{
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  fontFamily: "Onest",
-                }}
-              >
-                John Doe
-              </Typography>
-            </Button>
-          </Stack>
-        </Toolbar>
-      </AppBar>
       <Box
         sx={{
           height: "1142px",
@@ -1002,7 +841,10 @@ function Profile() {
                           >
                             <Button
                               variant="outlined"
-                              onClick={() => navigate(-1)}
+                              onClick={() => {
+                                setNavigateAfterClose(-1); // Navigate back
+                                setOpen(false); // Close modal
+                              }}
                               sx={{
                                 color: "#024FAA",
                                 borderColor: "#024FAA",
@@ -1019,7 +861,10 @@ function Profile() {
 
                             <Button
                               variant="contained"
-                              onClick={() => navigate("/Bookings")}
+                              onClick={() => {
+                                setNavigateAfterClose(-1); // Navigate back
+                                setOpen(false); // Close modal
+                              }}
                               sx={{
                                 color: "#FFFFFF",
                                 backgroundColor: "#024FAA",

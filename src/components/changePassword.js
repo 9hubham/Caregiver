@@ -6,187 +6,114 @@ import {
   Button
 } from "@mui/material";
 import * as React from "react";
-function changePassword() {
+
+function ChangePassword() {
   return (
-    <>
-      <Stack
-        sx={{
-          gap: "10px",
-          paddingTop: "16px",
-          paddingRight: "24px",
-          paddingBottom: "16px",
-          paddingLeft: "24px",
-          height: "116px",
-          width: "500px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
-        }}
-      >
-        <Typography
+    <Box
+      sx={{
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#f9f9f9", // optional background
+      }}
+    >
+      <Box>
+        <Stack
           sx={{
-            fontSize: "36px",
-            fontWeight: 600,
-            color: "#101828",
-            fontFamily: "onest",
+            gap: "10px",
+            padding: "16px 24px",
+            width: "500px",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          Change Password
-        </Typography>
-      </Stack>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Stack sx={{ gap: "6px" }}>
           <Typography
             sx={{
-              fontFamily: "onest",
-              fontWeight: 500,
-              fontSize: "14px",
-              color: "_Gray/700",
+              fontSize: "36px",
+              fontWeight: 600,
+              color: "#101828",
+              fontFamily: "Onest",
             }}
           >
-            Old Password
+            Change Password
           </Typography>
-          <TextField
-            Variant="Outlined"
-            placeholder="Enter Password"
-            sx={{
-              borderRadius: "30px",
-              "& .MuiOutlinedInput-root": {
-                border: "1px",
-                borderRadius: "12px",
-                height: "44px",
-                width: "420px",
-                gap: "8px",
-                paddingTop: "10px",
-                paddingBottom: "10px",
-                paddingLeft: "14px",
-                paddingRight: "14px",
-                borderColor: "#475467",
-              },
-            }}
-          />
+
+          <Stack sx={{ gap: "6px" }}>
+            <Typography sx={labelStyle}>Old Password</Typography>
+            <TextField placeholder="Enter Password" sx={inputStyle} />
+          </Stack>
+
+          <Stack sx={{ gap: "6px" }}>
+            <Typography sx={labelStyle}>New Password</Typography>
+            <TextField placeholder="Enter Password" sx={inputStyle} />
+          </Stack>
+
+          <Stack sx={{ gap: "6px" }}>
+            <Typography sx={labelStyle}>Confirm Password</Typography>
+            <TextField placeholder="Enter Password" sx={inputStyle} />
+          </Stack>
+
+          <Stack direction="row" spacing={2} mt={2}>
+            <Button variant="outlined" sx={outlinedBtnStyle}>
+              <Typography sx={cancelTextStyle}>Cancel</Typography>
+            </Button>
+            <Button variant="contained" sx={containedBtnStyle}>
+              <Typography sx={saveTextStyle}>Save</Typography>
+            </Button>
+          </Stack>
         </Stack>
-        <Stack sx={{ gap: "6px" }}>
-          <Typography
-            sx={{
-              fontFamily: "onest",
-              fontWeight: 500,
-              fontSize: "14px",
-              color: "_Gray/700",
-            }}
-          >
-            New Password
-          </Typography>
-          <TextField
-            Variant="Outlined"
-            placeholder="Enter Password"
-            sx={{
-              borderRadius: "30px",
-              "& .MuiOutlinedInput-root": {
-                border: "1px",
-                borderRadius: "12px",
-                height: "44px",
-                width: "420px",
-                gap: "8px",
-                paddingTop: "10px",
-                paddingBottom: "10px",
-                paddingLeft: "14px",
-                paddingRight: "14px",
-                borderColor: "#475467",
-              },
-            }}
-          />
-        </Stack>
-        <Stack sx={{ gap: "6px" }}>
-          <Typography
-            sx={{
-              fontFamily: "onest",
-              fontWeight: 500,
-              fontSize: "14px",
-              color: "_Gray/700",
-            }}
-          >
-            Confirm Password
-          </Typography>
-          <TextField
-            Variant="Outlined"
-            placeholder="Enter Password"
-            sx={{
-              borderRadius: "30px",
-              "& .MuiOutlinedInput-root": {
-                border: "1px",
-                borderRadius: "12px",
-                height: "44px",
-                width: "420px",
-                gap: "8px",
-                paddingTop: "10px",
-                paddingBottom: "10px",
-                paddingLeft: "14px",
-                paddingRight: "14px",
-                borderColor: "#475467",
-              },
-            }}
-          />
-        </Stack>
-        <Stack sx={{ display: "flex", flexDirection: "row", gap: "14px" }}>
-              <Button
-                variant="outlined"
-                sx={{
-                  color: "#024FAA",
-                  borderRadius: "40px",
-                  paddingtop: "16px",
-                  paddingBottom: "16px",
-                  paddingRight: "42px",
-                  paddingLeft: "42px",
-                  height: "52px",
-                  width: "203px",
-                  gap: "8px",
-                }}
-                
-              >
-                <Typography
-                  sx={{
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    color: "#024FAA",
-                    fontFamily: "Onest,sans-serif",
-                    textTransform: "none",
-                  }}
-                >
-                  Cancel
-                </Typography>
-              </Button>
-              <Button
-                variant="contained"
-                sx={{
-                  color: "#024FAA",
-                  borderRadius: "40px",
-                  paddingtop: "16px",
-                  paddingBottom: "16px",
-                  paddingRight: "42px",
-                  paddingLeft: "42px",
-                  height: "52px",
-                  width: "203px",
-                  gap: "8px",
-                }}
-               
-              >
-                <Typography
-                  sx={{
-                    fontSize: "16px",
-                    fontWeight: 600,
-                    color: "#FFFFFF",
-                    fontFamily: "Onest,sans-serif",
-                    textTransform: "none",
-                  }}
-                >
-                  Save
-                </Typography>
-              </Button>
-            </Stack>
       </Box>
-    </>
+    </Box>
   );
 }
-export default changePassword;
+
+// Shared Styles
+const labelStyle = {
+  fontFamily: "Onest",
+  fontWeight: 500,
+  fontSize: "14px",
+  color: "#475467",
+};
+
+const inputStyle = {
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "12px",
+    height: "44px",
+    width: "420px",
+    padding: "0 14px",
+  },
+};
+
+const outlinedBtnStyle = {
+  color: "#024FAA",
+  borderRadius: "40px",
+  height: "52px",
+  width: "203px",
+};
+
+const containedBtnStyle = {
+  backgroundColor: "#024FAA",
+  borderRadius: "40px",
+  height: "52px",
+  width: "203px",
+};
+
+const cancelTextStyle = {
+  fontSize: "14px",
+  fontWeight: 500,
+  color: "#024FAA",
+  fontFamily: "Onest, sans-serif",
+  textTransform: "none",
+};
+
+const saveTextStyle = {
+  fontSize: "16px",
+  fontWeight: 600,
+  color: "#FFFFFF",
+  fontFamily: "Onest, sans-serif",
+  textTransform: "none",
+};
+
+export default ChangePassword;
