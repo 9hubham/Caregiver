@@ -43,6 +43,27 @@ function Profile() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
+
+  // Modal style
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "477px",
+    maxHeight: "90vh",
+    bgcolor: "background.paper",
+    borderRadius: "10px",
+    padding: "32px",
+    boxShadow: 2,
+    p: 4,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "auto",
+  };
+
   return (
     <>
       <AppBar
@@ -150,13 +171,6 @@ function Profile() {
               </Typography>
             </Button>
             <FormControl
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment>
-                    <img src={Down} alt="lock" height="20px" width="20px" />
-                  </InputAdornment>
-                ),
-              }}
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "60px",
@@ -167,7 +181,18 @@ function Profile() {
                 },
               }}
             >
-              <Select>
+              <Select
+                displayEmpty
+                defaultValue={"English"}
+                renderValue={(selected) => {
+                  return selected;
+                }}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <img src={Down} alt="lock" height="20px" width="20px" />
+                  </InputAdornment>
+                }
+              >
                 <MenuItem value={"English"}>English</MenuItem>
                 <MenuItem value={"Malaysian"}>Malaysian</MenuItem>
                 <MenuItem value={"Thau"}>Thau</MenuItem>
@@ -383,272 +408,260 @@ function Profile() {
                     Book Paula
                   </Typography>
                 </Button>
-                <div>
-                  <Modal open={open} onClose={handleClose}>
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        width: "477px",
-                        height: "100%",
-                        bgcolor: "background.paper",
-                        borderRadius: "10px",
-                        padding: "32px",
-                        gap: "32px",
-                        boxShadow: 2,
-                        p: 4,
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        overflow: "scroll",
-                        marginBottom: "50px",
-                      }}
-                    >
-                      <Stack
-                        sx={{ height: "63px", width: "413px", gap: "11px" }}
-                      >
-                        <Typography
-                          sx={{
-                            color: "#024FAA",
-                            fontFamily: "Onest",
-                            fontWeight: 600,
-                            fontSize: "18px",
-                          }}
-                        >
-                          Book For?
-                        </Typography>
-                        <Typography
-                          sx={{
-                            color: "#73787E",
-                            fontFamily: "Onest",
-                            fontWeight: 400,
-                            fontSize: "16px",
-                          }}
-                        >
-                          Select Patient for the care
-                        </Typography>
-                      </Stack>
-                      <Stack
+
+                {/* Fixed Modal Implementation */}
+                <Modal
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="booking-modal"
+                  aria-describedby="booking-details-modal"
+                >
+                  <Box sx={modalStyle}>
+                    <Stack sx={{ height: "63px", width: "413px", gap: "11px" }}>
+                      <Typography
                         sx={{
-                          height: "206px",
-                          width: "413px",
-                          gap: "12px",
-                          display: "flex",
-                          flexDirection: "column",
+                          color: "#024FAA",
+                          fontFamily: "Onest",
+                          fontWeight: 600,
+                          fontSize: "18px",
                         }}
                       >
-                        <Box
+                        Book For?
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#73787E",
+                          fontFamily: "Onest",
+                          fontWeight: 400,
+                          fontSize: "16px",
+                        }}
+                      >
+                        Select Patient for the care
+                      </Typography>
+                    </Stack>
+                    <Stack
+                      sx={{
+                        height: "206px",
+                        width: "413px",
+                        gap: "12px",
+                        display: "flex",
+                        flexDirection: "column",
+                        marginTop: "20px",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          height: "132px",
+                          width: "413px",
+                          gap: "8px",
+                          padding: "16px",
+                          border: "1px Solid #F2F4F7",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        <Stack
                           sx={{
-                            height: "132px",
-                            width: "413px",
-                            gap: "8px",
-                            padding: "16px",
-                            border: "1px Solid #F2F4F7",
-                            borderRadius: "8px",
+                            height: "100px",
+                            width: "381px",
+                            gap: "20px",
+                            display: "flex",
+                            flexDirection: "row",
                           }}
                         >
-                          <Stack
+                          <Box
                             sx={{
-                              height: "100px",
-                              width: "381px",
-                              gap: "20px",
-                              display: "flex",
-                              flexDirection: "row",
+                              height: "80px",
+                              width: "80px",
+                              border: "1.5px Solid #FC9155",
+                              borderRadius: "12px",
                             }}
                           >
-                            <Box
-                              sx={{
-                                height: "80px",
+                            <img
+                              src={Dp}
+                              alt="Profile"
+                              style={{
                                 width: "80px",
-                                Border: "1.5px Solid #FC9155",
+                                height: "80px",
+                                borderRadius: "12px",
+                              }}
+                            />
+                          </Box>
+                          <Stack
+                            sx={{
+                              width: "270px",
+                              height: "100px",
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "8px",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                fontFamily: "Onest",
+                                color: "#101828",
                               }}
                             >
-                              <img
-                                src={Dp}
-                                alt="Profile"
-                                style={{
-                                  width: "80px",
-                                  height: "80px",
-                                  Border: "1px Solid #FC9155",
-                                  borderRadius: "12px",
+                              PART-TIME
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontSize: "20px",
+                                fontWeight: 700,
+                                fontFamily: "Onest",
+                                color: "#101828",
+                              }}
+                            >
+                              Paula Mora
+                            </Typography>
+                            <Typography
+                              sx={{ display: "flex", flexDirection: "row" }}
+                            >
+                              <Rating
+                                name="modal-rating"
+                                value={value}
+                                onChange={(event, newValue) => {
+                                  setValue(newValue);
                                 }}
                               />
-                            </Box>
+                              (5)
+                            </Typography>
                             <Stack
                               sx={{
-                                width: "713px",
-                                height: "128px",
-                                display: "flex",
-                                flexDirection: "column",
-                                gap: "8px",
+                                height: "24px",
+                                width: "250px",
+                                gap: "4px",
                               }}
                             >
                               <Typography
                                 sx={{
                                   fontSize: "14px",
-                                  fontWeight: 400,
+                                  fontWeight: 500,
                                   fontFamily: "Onest",
-                                  color: "#101828",
+                                  color: "#667085",
+                                  display: "flex",
+                                  flexDirection: "row",
                                 }}
                               >
-                                PART-TIME
-                              </Typography>
-                              <Typography
-                                sx={{
-                                  fontSize: "20px",
-                                  fontWeight: 700,
-                                  fontFamily: "Onest",
-                                  color: "#101828",
-                                }}
-                              >
-                                Paula Mora
-                              </Typography>
-                              <Typography
-                                sx={{ display: "flex", flexDirection: "row" }}
-                              >
-                                <Rating
-                                  name="no-value"
-                                  value={value}
-                                  onChange={(event, newValue) => {
-                                    setValue(newValue);
-                                  }}
+                                <img
+                                  src={Tick}
+                                  alt="Shield Tick"
+                                  height="24px"
+                                  width="24px"
                                 />
-                                (5)
+                                Background check done
                               </Typography>
-                              <Stack
-                                sx={{
-                                  height: "24px",
-                                  width: "713px",
-                                  gap: "4px",
-                                }}
-                              >
-                                <Typography
-                                  sx={{
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    fontFamily: "Onest",
-                                    color: "#667085",
-                                    display: "flex",
-                                    flexDirection: "row",
-                                  }}
-                                >
-                                  <img
-                                    src={Tick}
-                                    alt="Shield Tick"
-                                    height="24px"
-                                    width="24px"
-                                  />
-                                  Background check done
-                                </Typography>
-                              </Stack>
                             </Stack>
                           </Stack>
-                        </Box>
-                        <Box
-                          sx={{
-                            height: "413px",
-                            width: "62px",
-                            borderRadius: "8px",
-                            border: "1px Solid #F2F4F7",
-                            gap: "8px",
-                            padding: "16px",
-                          }}
+                        </Stack>
+                      </Box>
+                      <Box
+                        sx={{
+                          width: "413px",
+                          height: "60px",
+                          borderRadius: "8px",
+                          border: "1px Solid #F2F4F7",
+                          gap: "8px",
+                          padding: "16px",
+                        }}
+                      >
+                        <Stack
+                          sx={{ height: "30px", width: "381px", gap: "8px" }}
                         >
-                          <Stack
-                            sx={{ height: "30px", width: "381px", gap: "8px" }}
-                          >
-                            <Typography
-                              sx={{
-                                color: "#101828",
-                                fontSize: "20px",
-                                fontWeight: 700,
-                                fontFamily: "Onest",
-                              }}
-                            >
-                              {" "}
-                              $59/hr
-                            </Typography>
-                          </Stack>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: "413px",
-                            height: "188px",
-                            border: "1px Solid #F2F4F7",
-                            borderRadius: "8px",
-                            padding: "16px",
-                            gap: "20px",
-                          }}
-                        >
-                          <Stack
+                          <Typography
                             sx={{
-                              width: "381px",
-                              height: "70px",
-                              gap: "6px",
-                              display: "flex",
-                              flexDirection: "column",
+                              color: "#101828",
+                              fontSize: "20px",
+                              fontWeight: 700,
+                              fontFamily: "Onest",
                             }}
                           >
-                            <Typography
-                              sx={{
-                                color: "#344054",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                fontFamily: "Onest",
-                              }}
-                            >
-                              Booking Date
-                            </Typography>
-                            <Stack sx={{ gap: "6px" }}>
-                              <TextField
-                                Variant="Outlined"
-                                placeholder="Select Date"
-                                sx={{
-                                  color: "#667085",
-                                  "& .MuiOutlinedInput-root": {
-                                    border: "1px #475467",
-                                    borderRadius: "12px",
-                                    height: "44px",
-                                    width: "381px",
-                                    gap: "8px",
-                                    paddingTop: "10px",
-                                    paddingBottom: "10px",
-                                    paddingLeft: "14px",
-                                    paddingRight: "14px",
-                                  },
-                                }}
-                                InputProps={{
-                                  startAdornment: (
-                                    <InputAdornment position="start">
-                                      <img
-                                        src={Calender}
-                                        alt="lock"
-                                        height="20px"
-                                        width="20px"
-                                      />
-                                    </InputAdornment>
-                                  ),
-                                }}
-                              />
-                            </Stack>
-                          </Stack>
-                          <Stack
+                            $59/hr
+                          </Typography>
+                        </Stack>
+                      </Box>
+                      <Box
+                        sx={{
+                          width: "413px",
+                          height: "188px",
+                          border: "1px Solid #F2F4F7",
+                          borderRadius: "8px",
+                          padding: "16px",
+                          gap: "20px",
+                        }}
+                      >
+                        <Stack
+                          sx={{
+                            width: "381px",
+                            height: "70px",
+                            gap: "6px",
+                            display: "flex",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <Typography
                             sx={{
                               color: "#344054",
                               fontSize: "14px",
-                              fontFamily: "Onest",
                               fontWeight: 500,
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "6px",
+                              fontFamily: "Onest",
                             }}
                           >
-                            <Typography sx={{}}>Booking Time</Typography>
-                          </Stack>
-                          <Stack sx={{ display: "flex", flexDirection: "row" }}>
+                            Booking Date
+                          </Typography>
+                          <TextField
+                            variant="outlined"
+                            placeholder="Select Date"
+                            sx={{
+                              color: "#667085",
+                              "& .MuiOutlinedInput-root": {
+                                border: "1px #475467",
+                                borderRadius: "12px",
+                                height: "44px",
+                                width: "381px",
+                                gap: "8px",
+                                paddingTop: "10px",
+                                paddingBottom: "10px",
+                                paddingLeft: "14px",
+                                paddingRight: "14px",
+                              },
+                            }}
+                            InputProps={{
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  <img
+                                    src={Calender}
+                                    alt="calendar"
+                                    height="20px"
+                                    width="20px"
+                                  />
+                                </InputAdornment>
+                              ),
+                            }}
+                          />
+                        </Stack>
+                        <Stack
+                          sx={{
+                            color: "#344054",
+                            fontSize: "14px",
+                            fontFamily: "Onest",
+                            fontWeight: 500,
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "6px",
+                            marginTop: "10px",
+                          }}
+                        >
+                          <Typography>Booking Time</Typography>
+                          <Stack
+                            sx={{
+                              display: "flex",
+                              flexDirection: "row",
+                              gap: "5px",
+                              marginTop: "5px",
+                            }}
+                          >
                             <Box
                               sx={{
                                 height: "40px",
@@ -758,203 +771,278 @@ function Profile() {
                               </Typography>
                             </Box>
                           </Stack>
-                        </Box>
-                        <Stack
-                          sx={{ height: "352px", width: "413px", gap: "16px" }}
-                        >
-                          <Box
-                            sx={{
-                              height: "76px",
-                              width: "413px",
-                              gap: "4px",
-                              borderRadius: "8px",
-                              padding: "16px",
-                              boxShadow: "2px 2px 5px 0",
-                              display: "flex",
-                              flexDirection: "Column",
-                            }}
-                          >
-                            {" "}
-                            <Stack
-                              sx={{
-                                width: "310px",
-                                height: "44px",
-                                gap: "12px",
-                                display: "flex",
-                                flexDirection: "row",
-                              }}
-                            >
-                              {" "}
-                              <Avatar
-                                sx={{
-                                  backgroundColor: "#D1E6FF",
-                                  color: "#024FAA",
-                                  fontSize: "14px",
-                                  fontWeight: 500,
-                                  height: "32px",
-                                  width: "32px",
-                                }}
-                              >
-                                OR
-                              </Avatar>
-                              <Stack
-                                sx={{
-                                  height: "44px",
-                                  width: "266px",
-                                  display: "flex",
-                                  flexDirection: "column",
-                                }}
-                              >
-                                <Typography
-                                  sx={{
-                                    color: "#101828",
-                                    fontFamily: "Onest",
-                                    fontWeight: 500,
-                                    fontSize: "16x",
-                                  }}
-                                >
-                                  Olivia Rhye
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#101828",
-                                    fontFamily: "Onest",
-                                    fontWeight: 400,
-                                    fontSize: "14x",
-                                  }}
-                                >
-                                  21 years
-                                </Typography>
-                              </Stack>
-                              <Stack
-                                sx={{
-                                  height: "20px",
-                                  width: "67px",
-                                  gap: "4px",
-                                  display: "flex",
-                                  flexDirection: "row",
-                                }}
-                              >
-                                <img
-                                  src={Woman}
-                                  alt="woman"
-                                  height="16px"
-                                  width="16px"
-                                />
-                                <Typography
-                                  sx={{
-                                    color: "#667085",
-                                    fontFamily: "Onest",
-                                    fontWeight: 400,
-                                    fontSize: "14x",
-                                  }}
-                                >
-                                  Female
-                                </Typography>
-                              </Stack>
-                            </Stack>
-                          </Box>
-                          <Box
-                            sx={{
-                              height: "76px",
-                              width: "413px",
-                              gap: "4px",
-                              borderRadius: "8px",
-                              padding: "16px",
-                              boxShadow: "2px 2px 5px 0",
-                              display: "flex",
-                              flexDirection: "Column",
-                            }}
-                          >
-                            {" "}
-                            <Stack
-                              sx={{
-                                width: "310px",
-                                height: "44px",
-                                gap: "12px",
-                                display: "flex",
-                                flexDirection: "row",
-                              }}
-                            >
-                              {" "}
-                              <Avatar
-                                sx={{
-                                  backgroundColor: "#D1E6FF",
-                                  color: "#024FAA",
-                                  fontSize: "14px",
-                                  fontWeight: 500,
-                                  height: "32px",
-                                  width: "32px",
-                                }}
-                              >
-                                OR
-                              </Avatar>
-                              <Stack
-                                sx={{
-                                  height: "44px",
-                                  width: "266px",
-                                  display: "flex",
-                                  flexDirection: "column",
-                                }}
-                              >
-                                <Typography
-                                  sx={{
-                                    color: "#101828",
-                                    fontFamily: "Onest",
-                                    fontWeight: 500,
-                                    fontSize: "16x",
-                                  }}
-                                >
-                                  Olivia Rhye
-                                </Typography>
-                                <Typography
-                                  sx={{
-                                    color: "#101828",
-                                    fontFamily: "Onest",
-                                    fontWeight: 400,
-                                    fontSize: "14x",
-                                  }}
-                                >
-                                  21 years
-                                </Typography>
-                              </Stack>
-                              <Stack
-                                sx={{
-                                  height: "20px",
-                                  width: "67px",
-                                  gap: "4px",
-                                  display: "flex",
-                                  flexDirection: "row",
-                                }}
-                              >
-                                <img
-                                  src={Woman}
-                                  alt="woman"
-                                  height="16px"
-                                  width="16px"
-                                />
-                                <Typography
-                                  sx={{
-                                    color: "#667085",
-                                    fontFamily: "Onest",
-                                    fontWeight: 400,
-                                    fontSize: "14x",
-                                  }}
-                                >
-                                  Female
-                                </Typography>
-                              </Stack>
-                            </Stack>
-                          </Box>
                         </Stack>
+                      </Box>
+
+                      <Stack
+                        sx={{
+                          height: "352px",
+                          width: "413px",
+                          gap: "16px",
+                          marginTop: "10px",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            color: "#344054",
+                            fontFamily: "Onest",
+                            fontWeight: 600,
+                            fontSize: "16px",
+                          }}
+                        >
+                          Select Patient
+                        </Typography>
+                        <Box
+                          sx={{
+                            height: "76px",
+                            width: "413px",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            padding: "16px",
+                            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                            display: "flex",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <Stack
+                            sx={{
+                              width: "380px",
+                              height: "44px",
+                              gap: "12px",
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Avatar
+                              sx={{
+                                backgroundColor: "#D1E6FF",
+                                color: "#024FAA",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                height: "32px",
+                                width: "32px",
+                              }}
+                            >
+                              OR
+                            </Avatar>
+                            <Stack
+                              sx={{
+                                height: "44px",
+                                width: "266px",
+                                display: "flex",
+                                flexDirection: "column",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 500,
+                                  fontSize: "16px",
+                                }}
+                              >
+                                Olivia Rhye
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                21 years
+                              </Typography>
+                            </Stack>
+                            <Stack
+                              sx={{
+                                height: "20px",
+                                width: "67px",
+                                gap: "4px",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                              }}
+                            >
+                              <img
+                                src={Woman}
+                                alt="woman"
+                                height="16px"
+                                width="16px"
+                              />
+                              <Typography
+                                sx={{
+                                  color: "#667085",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                Female
+                              </Typography>
+                            </Stack>
+                          </Stack>
+                        </Box>
+
+                        <Box
+                          sx={{
+                            height: "76px",
+                            width: "413px",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            padding: "16px",
+                            boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                            display: "flex",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <Stack
+                            sx={{
+                              width: "380px",
+                              height: "44px",
+                              gap: "12px",
+                              display: "flex",
+                              flexDirection: "row",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Avatar
+                              sx={{
+                                backgroundColor: "#D1E6FF",
+                                color: "#024FAA",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                height: "32px",
+                                width: "32px",
+                              }}
+                            >
+                              OR
+                            </Avatar>
+                            <Stack
+                              sx={{
+                                height: "44px",
+                                width: "266px",
+                                display: "flex",
+                                flexDirection: "column",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 500,
+                                  fontSize: "16px",
+                                }}
+                              >
+                                Olivia Rhye
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  color: "#101828",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                21 years
+                              </Typography>
+                            </Stack>
+                            <Stack
+                              sx={{
+                                height: "20px",
+                                width: "67px",
+                                gap: "4px",
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                              }}
+                            >
+                              <img
+                                src={Woman}
+                                alt="woman"
+                                height="16px"
+                                width="16px"
+                              />
+                              <Typography
+                                sx={{
+                                  color: "#667085",
+                                  fontFamily: "Onest",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                }}
+                              >
+                                Female
+                              </Typography>
+                            </Stack>
+                          </Stack>
+                        </Box>
+
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            width: "100%",
+                          }}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: "16px",
+                              fontWeight: 500,
+                              color: "#024FAA",
+                              textAlign: "center",
+                              marginBottom: "20px",
+                            }}
+                          >
+                            Add new Patient
+                          </Typography>
+
+                          <Box
+                            sx={{ display: "flex", gap: "16px", width: "100%" }}
+                          >
+                            <Button
+                              variant="outlined"
+                              onClick={() => navigate(-1)}
+                              sx={{
+                                color: "#024FAA",
+                                borderColor: "#024FAA",
+                                borderRadius: "40px",
+                                padding: "10px 20px",
+                                height: "52px",
+                                width: "100%",
+                                fontFamily: "Onest,sans-serif",
+                                textTransform: "none",
+                              }}
+                            >
+                              Cancel
+                            </Button>
+
+                            <Button
+                              variant="contained"
+                              onClick={() => navigate("/Bookings")}
+                              sx={{
+                                color: "#FFFFFF",
+                                backgroundColor: "#024FAA",
+                                borderRadius: "40px",
+                                padding: "10px 20px",
+                                height: "52px",
+                                width: "100%",
+                                fontFamily: "Onest,sans-serif",
+                                textTransform: "none",
+                              }}
+                            >
+                              Book
+                            </Button>
+                          </Box>
+                        </Box>
                       </Stack>
-                    </Box>
-                    <Button onClick={() => navigate("/Bookings")}>Book</Button>
-                  </Modal>
-                </div>
+                    </Stack>
+                  </Box>
+                </Modal>
               </Stack>
             </Stack>
           </Box>
+
           <Box
             sx={{
               width: 1066,

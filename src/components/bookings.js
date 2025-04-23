@@ -10,182 +10,145 @@ import {
   Select,
   InputAdornment,
 } from "@mui/material";
-import Profileimg from "../assests/profileimg.png";
+import Profileimg from "../assests/bodylogo.png";
 import Logo from "../assests/logo.png";
 import Arrow from "../assests/arrow-down.png";
-import Down from "../assests/chevron-down.png";
+import Down from "../assests/Icon.png";
 import Search from "../assests/search 1.png";
 import "@fontsource-variable/onest";
 import Dp from "../assests/dp.png";
 import Profile1 from "../assests/profile(1).png"
-import Alex from "../assests/profile(2).png"
+import Alex from "../assests/profile(2).png";
+import React from "react";
+import firstIcon from "../assests/language-square.png";
+import secondIcon from "../assests/Icon.png";
+import BodyLogo from "../assests/bodylogo.png";
+import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import {  InputLabel } from "@mui/material";
+import Information from "./Information";
 
 function Bookings() {
+  const navigate = useNavigate();
+  
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [location, setLocation] = React.useState("Thane, Mumbai");
+  
+    const handleMenuOpen = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleMenuClose = () => {
+      setAnchorEl(null);
+    };
+
   return (
     <>
       <AppBar
-        sx={{
-          backgroundColor: "white",
-          boxShadow: "none",
-        }}
-      >
-        <Toolbar
-          sx={{
-            display: "flex",
-          }}
-        >
-          <Box>
-            <Box
-              sx={{
-                gap: "20px",
-                borderRadius: "12px",
-                paddingTop: "10px",
-                paddingRight: "14px",
-                paddingLeft: "14px",
-                paddingBottom: "10px",
-                border: "10px",
-                borderColor: "Black",
-                display: "flex",
-                flexDirection: "row",
-              }}
+              position="static"
+              sx={{ background: "#fff", color: "#000", boxShadow: 1 }}
             >
-              <img src={Logo} alt="lock" height="45px" width="135px" />
-
-              <Stack sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography
-                  sx={{
-                    fontWeight: 500,
-                    fontSize: "12px",
-                    fontFamily: "Onest",
-                    textTransform: "none",
-                    color: "#FC9155",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
+              <Toolbar
+                sx={{
+                  minHeight: 100,
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                {/* Logo */}
+                <Box
+                  component="img"
+                  src={Logo}
+                  alt="CareDad Logo"
+                  sx={{ height: 50 }}
+                ></Box>
+      
+                {/* Location Selector */}
+                <FormControl>
+                  <InputLabel>Your location</InputLabel>
+                  <Select
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    variant="standard"
+                    displayEmpty
+                    sx={{
+                      minWidth: 150,
+                      "&:before, &:after": { display: "none" }, // Removes the underline
+                      "& .MuiSelect-select": { padding: 0 }, // Adjusts padding for better alignment
+                    }}
+                  >
+                    <MenuItem value={"Thane, Mumbai"}>Thane, Mumbai</MenuItem>
+                    <MenuItem value={"Delhi"}>Delhi</MenuItem>
+                    <MenuItem value={"Bangalore"}>Bangalore</MenuItem>
+                  </Select>
+                </FormControl>
+      
+                {/* Navigation Links */}
+                <Box sx={{ display: "flex", gap: 3 }}>
+                  <Button onClick={() => navigate("/HomePage")} color="inherit">
+                    Home
+                  </Button>
+                  <Button onClick={() => navigate("/Booking")} color="inherit">
+                    Appointment
+                  </Button>
+                  <Button onClick={() => navigate("/Payment")} color="inherit">
+                    Payments
+                  </Button>
+                </Box>
+      
+                {/* Search Icon */}
+                <IconButton onClick={handleMenuOpen}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <Box
+                      component="img"
+                      src={firstIcon}
+                      alt="first Icon"
+                      sx={{ width: 24, height: 24 }}
+                    />
+                    <Box
+                      component="img"
+                      src={secondIcon}
+                      alt="second Icon"
+                      sx={{ width: 24, height: 24 }}
+                    />
+                  </Box>
+                </IconButton>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleMenuClose}
                 >
-                  Your location
-                </Typography>
-                <Typography
+                  <MenuItem onClick={handleMenuClose}>English</MenuItem>
+                  <MenuItem onClick={handleMenuClose}>Malaysian</MenuItem>
+                  <MenuItem onClick={handleMenuClose}>Thai</MenuItem>
+                  <MenuItem onClick={handleMenuClose}>Indonesian</MenuItem>
+                </Menu>
+      
+                {/* Profile Menu */}
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+      
+                {/* User Profile */}
+                <Button
+                  color="primary"
+                  variant="contained"
                   sx={{
-                    color: "#344054",
-                    fontSize: "18px",
-                    fontWeight: 500,
-                    fontFamily: "Onest",
+                    borderRadius: 40,
+                    minHeight: 50,
+                    backgroundColor: "#003580",
+                    "&:hover": { backgroundColor: "#002766" },
                   }}
+                  startIcon={
+                    <img src={BodyLogo} alt="Logo" sx={{ height: 24, width: 24 }} />
+                  }
                 >
-                  Thane, Mumbai
-                  <img src={Arrow} alt="lock" height="24px" width="24px" />
-                </Typography>
-              </Stack>
-            </Box>
-          </Box>
-
-          <Stack
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "34px",
-              marginLeft: "400px",
-            }}
-          >
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Home
-              </Typography>
-            </Button>
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Appointment
-              </Typography>
-            </Button>
-            <Button variant="text">
-              <Typography
-                sx={{
-                  fontWeight: 500,
-                  fontSize: "18px",
-                  fontFamily: "Onest",
-                  textTransform: "none",
-                }}
-              >
-                {" "}
-                Payments
-              </Typography>
-            </Button>
-            <FormControl
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment>
-                    <img src={Down} alt="lock" height="20px" width="20px" />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "60px",
-                  height: "48px",
-                  width: "84px",
-                  gap: "12px",
-                  padding: "12px",
-                },
-              }}
-            >
-              <Select>
-                <MenuItem value={"English"}>English</MenuItem>
-                <MenuItem value={"Malaysian"}>Malaysian</MenuItem>
-                <MenuItem value={"Thau"}>Thau</MenuItem>
-                <MenuItem value={"Indonesian"}>Indonesian</MenuItem>
-              </Select>
-            </FormControl>
-            <Button>
-              {" "}
-              <img src={Search} alt="Profile icon" height="24px" width="24px" />
-            </Button>
-            <Button
-              variant="contained"
-              sx={{
-                gap: "14px",
-                borderRadius: "40px",
-                height: "52px",
-                width: "138px",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <img
-                src={Profileimg}
-                alt="Profil icon"
-                height="24px"
-                width="24px"
-              />
-              <Typography
-                sx={{
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  fontFamily: "Onest",
-                }}
-              >
-                John Doe
-              </Typography>
-            </Button>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+                  John Doe
+                </Button>
+              </Toolbar>
+            </AppBar>
       <Box
         sx={{
           height: "1142px",
