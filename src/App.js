@@ -14,7 +14,7 @@ import ChangePassword from "./components/changePassword";
 import FamilyMemberCard from "./components/familyMemberCard";
 import ServicesNeed from "./components/servicesNeed";
 import SpecialNeeds from "./components/specialNeeds";
-import EditPaymentdetails from "./components/addPaymentdetails";
+import EditPaymentdetails from "./components/editPaymentdetails";
 
 function App() {
   return (
@@ -38,7 +38,6 @@ function App() {
           <Route path="/mycondition" element={<MyCondition />} />
           <Route path="/servicesneed" element={<ServicesNeed />} />
           <Route path="/specialneeds" element={<SpecialNeeds />} />
-          <Route path="/payment" element={<Payments />} />
           <Route path="/information" element={<Information />} />
         </Routes>
       </BrowserRouter>

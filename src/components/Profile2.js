@@ -670,7 +670,7 @@ function Profile2() {
                 boxShadow: "2px 2px 15px 0px #0000000D",
                 cursor: "pointer",
               }}
-              onClick={() => navigate("/editpaymentdetails")}
+              
             >
               <Stack
                 sx={{
@@ -680,6 +680,7 @@ function Profile2() {
                   display: "flex",
                   flexDirection: "row",
                 }}
+                onClick={() => navigate("/editPaymentdetails")}
               >
                 {" "}
                 <Avatar

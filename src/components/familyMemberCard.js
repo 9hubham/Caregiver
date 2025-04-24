@@ -31,9 +31,10 @@ const FamilyMemberCard = () => {
           <Typography variant="h6" fontWeight="600">
             Family Member Details
           </Typography>
-          <IconButton>
-            <CloseIcon />
-          </IconButton>
+          <IconButton onClick={() => navigate(-1)}>
+  <CloseIcon />
+</IconButton>
+
         </Stack>
 
         {/* Stack 2: Details */}
@@ -72,6 +73,7 @@ const FamilyMemberCard = () => {
           <Button
             variant="outlined"
             color="error"
+            onClick={() => navigate(-1)}
             sx={{
               width: "48%",
               borderRadius: "24px",

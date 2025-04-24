@@ -13,8 +13,10 @@ import Image from "../assests/image.png";
 import "@fontsource/onest";
 import Calender from "../assests/calendar 1.png";
 import Card from "../assests/card.png";
+import { useNavigate } from "react-router-dom";
 
 function AddPaymentdetails() {
+  const navigate=useNavigate();
   return (
     <Box
       sx={{
@@ -216,6 +218,7 @@ function AddPaymentdetails() {
                   height: "52px",
                   width: "203px",
                 }}
+                onClick={() => navigate(-1)}
               >
                 <Typography
                   sx={{
@@ -237,6 +240,7 @@ function AddPaymentdetails() {
                   width: "203px",
                   backgroundColor: "#024FAA",
                 }}
+                onClick={() => navigate(-1)}
               >
                 <Typography
                   sx={{

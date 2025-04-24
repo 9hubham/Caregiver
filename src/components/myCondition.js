@@ -8,8 +8,11 @@ import {
 import Check from "../assests/check-circle 1.png";
 import Trash from "../assests/trash.png";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 function MyCondition() {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -18,85 +21,81 @@ function MyCondition() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#F9F9F9", // Optional background
+        backgroundColor: "#F9F9F9",
       }}
     >
-      <Box>
-        <Stack
+      <Stack
+        spacing={3}
+        sx={{
+          padding: "24px",
+          width: "500px",
+          bgcolor: "#fff",
+          borderRadius: "16px",
+          boxShadow: 3,
+        }}
+      >
+        {/* Title */}
+        <Typography
           sx={{
-            padding: "0px 24px 8px 24px",
-            width: "500px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
+            fontSize: "36px",
+            fontWeight: 600,
+            color: "#101828",
+            fontFamily: "onest",
           }}
         >
-          <Typography
-            sx={{
-              fontSize: "36px",
-              fontWeight: 600,
-              color: "#101828",
-              fontFamily: "onest",
-            }}
-          >
-            My condition
-          </Typography>
-        </Stack>
+          My condition
+        </Typography>
 
-        <Stack
-          sx={{
-            width: "468px",
-            height: "auto",
-            gap: "24px",
-            padding: "24px",
-          }}
-        >
-          <Box sx={{ width: "420px", display: "flex", flexDirection: "column", gap: "10px" }}>
-            <Box sx={conditionItemStyle}>
-              <Box sx={labelStyle}>
-                <img src={Check} alt="check" height="16px" width="16px" />
-                <Typography sx={conditionText}>Improvement of Health Fitness</Typography>
-              </Box>
-              <img src={Trash} alt="trash icon" height="16px" width="16px" />
+        {/* Conditions List */}
+        <Stack spacing={2}>
+          <Box sx={conditionItemStyle}>
+            <Box sx={labelStyle}>
+              <img src={Check} alt="check" height="16px" width="16px" />
+              <Typography sx={conditionText}>
+                Improvement of Health Fitness
+              </Typography>
             </Box>
-
-            <Box sx={conditionItemStyle}>
-              <Box sx={labelStyle}>
-                <img src={Check} alt="check" height="16px" width="16px" />
-                <Typography sx={conditionText}>Covid 19 recovery</Typography>
-              </Box>
-              <img src={Trash} alt="trash icon" height="16px" width="16px" />
-            </Box>
+            <img src={Trash} alt="trash icon" height="16px" width="16px" />
           </Box>
 
-          <Stack sx={inputContainerStyle}>
-            <Stack sx={{ width: "360px", gap: "18px" }}>
-              <Typography sx={labelTypography}>Add condition</Typography>
-              <TextField
-                variant="outlined"
-                placeholder="Enter condition"
-                sx={inputStyle}
-              />
-            </Stack>
-            <Box sx={addButtonStyle}>
-              <AddIcon sx={{ fontSize: 20, color: "#344054" }} />
+          <Box sx={conditionItemStyle}>
+            <Box sx={labelStyle}>
+              <img src={Check} alt="check" height="16px" width="16px" />
+              <Typography sx={conditionText}>Covid 19 recovery</Typography>
             </Box>
-          </Stack>
-
-          <Stack direction="row" spacing={2} sx={{ height: "52px", width: "420px" }}>
-            <Button variant="outlined" sx={outlinedBtnStyle}>
-              <Typography sx={cancelTextStyle}>Cancel</Typography>
-            </Button>
-            <Button variant="contained" sx={containedBtnStyle}>
-              <Typography sx={saveTextStyle}>Save</Typography>
-            </Button>
-          </Stack>
+            <img src={Trash} alt="trash icon" height="16px" width="16px" />
+          </Box>
         </Stack>
-      </Box>
+
+        {/* Add Condition */}
+        <Stack sx={inputContainerStyle}>
+          <Stack sx={{ width: "360px", gap: "18px" }}>
+            <Typography sx={labelTypography}>Add condition</Typography>
+            <TextField
+              variant="outlined"
+              placeholder="Enter condition"
+              sx={inputStyle}
+            />
+          </Stack>
+          <Box sx={addButtonStyle}>
+            <AddIcon sx={{ fontSize: 20, color: "#344054" }} />
+          </Box>
+        </Stack>
+
+        {/* Buttons */}
+        <Stack direction="row" spacing={2} justifyContent="center">
+          <Button variant="outlined" sx={outlinedBtnStyle} onClick={() => navigate(-1)}>
+            <Typography sx={cancelTextStyle}>Cancel</Typography>
+          </Button>
+          <Button variant="contained" sx={containedBtnStyle} onClick={() => navigate(-1)}>
+            <Typography sx={saveTextStyle}>Save</Typography>
+          </Button>
+        </Stack>
+      </Stack>
     </Box>
   );
 }
+
 
 // === Shared Styles ===
 const labelStyle = {

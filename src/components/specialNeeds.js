@@ -10,25 +10,33 @@ import {
 import Trash from "../assests/trash.png";
 import * as React from "react";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 function SpecialNeeds() {
+  const navigate = useNavigate();
+
   return (
-    <>
+    <Box
+      sx={{
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#F9F9F9",
+      }}
+    >
       <Stack
+        spacing={3}
         sx={{
-          gap: "10px",
-          paddingTop: "16px",
-          paddingRight: "24px",
-          paddingBottom: "16px",
-          paddingLeft: "24px",
-          height: "116px",
+          padding: "24px",
           width: "500px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "flex-start",
+          bgcolor: "#fff",
+          borderRadius: "16px",
+          boxShadow: 3,
         }}
       >
+        {/* Title */}
         <Typography
           sx={{
             fontSize: "36px",
@@ -39,11 +47,8 @@ function SpecialNeeds() {
         >
           Special needs
         </Typography>
-      </Stack>
 
-      <Stack
-        sx={{ height: "330px", width: "468px", padding: "24px", gap: "24px" }}
-      >
+        {/* Needs List */}
         <List
           sx={{
             width: "420px",
@@ -52,81 +57,35 @@ function SpecialNeeds() {
             gap: "12px",
           }}
         >
-          {/* Item 1 */}
-          <ListItem
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: 0,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: "16px",
-                  color: "#344054",
-                  fontFamily: "Onest",
-                }}
-              >
-                • Bathing
-              </Typography>
-            </Box>
-            <Box>
-              <img src={Trash} alt="trash icon" height="16px" width="16px" />
-            </Box>
-          </ListItem>
-
-          {/* Item 2 */}
-          <ListItem
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: 0,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: "16px",
-                  color: "#344054",
-                  fontFamily: "Onest",
-                }}
-              >
-                • Walk on morning
-              </Typography>
-            </Box>
-            <Box>
-              <img src={Trash} alt="trash icon" height="16px" width="16px" />
-            </Box>
-          </ListItem>
-
-          {/* Item 3 */}
-          <ListItem
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: 0,
-            }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: "16px",
-                  color: "#344054",
-                  fontFamily: "Onest",
-                }}
-              >
-                • Personal care
-              </Typography>
-            </Box>
-            <Box>
-              <img src={Trash} alt="trash icon" height="16px" width="16px" />
-            </Box>
-          </ListItem>
+          {["Bathing", "Walk on morning", "Personal care"].map((item, index) => (
+            <ListItem
+              key={index}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                padding: 0,
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    fontSize: "16px",
+                    color: "#344054",
+                    fontFamily: "Onest",
+                  }}
+                >
+                  • {item}
+                </Typography>
+              </Box>
+              <Box>
+                <img src={Trash} alt="trash icon" height="16px" width="16px" />
+              </Box>
+            </ListItem>
+          ))}
         </List>
+
+        {/* Add New */}
         <Stack
           sx={{
             gap: "16px",
@@ -149,21 +108,14 @@ function SpecialNeeds() {
               Add condition
             </Typography>
             <TextField
-              Variant="Outlined"
+              variant="outlined"
               placeholder="Enter condition"
               sx={{
-                borderRadius: "30px",
                 "& .MuiOutlinedInput-root": {
-                  border: "1px",
                   borderRadius: "12px",
                   height: "44px",
                   width: "360px",
-                  gap: "8px",
-                  paddingTop: "10px",
-                  paddingBottom: "10px",
-                  paddingLeft: "14px",
-                  paddingRight: "14px",
-                  borderColor: "#475467",
+                  padding: "0 14px",
                 },
               }}
             />
@@ -185,28 +137,18 @@ function SpecialNeeds() {
             <AddIcon sx={{ fontSize: 20, color: "#344054" }} />
           </Box>
         </Stack>
-        <Stack
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            gap: "14px",
-            height: "52px",
-            width: "420px",
-          }}
-        >
+
+        {/* Action Buttons */}
+        <Stack direction="row" spacing={2} justifyContent="center">
           <Button
             variant="outlined"
             sx={{
               color: "#024FAA",
               borderRadius: "40px",
-              paddingtop: "16px",
-              paddingBottom: "16px",
-              paddingRight: "42px",
-              paddingLeft: "42px",
               height: "52px",
               width: "203px",
-              gap: "8px",
             }}
+            onClick={() => navigate(-1)}
           >
             <Typography
               sx={{
@@ -223,16 +165,12 @@ function SpecialNeeds() {
           <Button
             variant="contained"
             sx={{
-              color: "#024FAA",
+              backgroundColor: "#024FAA",
               borderRadius: "40px",
-              paddingtop: "16px",
-              paddingBottom: "16px",
-              paddingRight: "42px",
-              paddingLeft: "42px",
               height: "52px",
               width: "203px",
-              gap: "8px",
             }}
+            onClick={() => navigate(-1)}
           >
             <Typography
               sx={{
@@ -248,7 +186,7 @@ function SpecialNeeds() {
           </Button>
         </Stack>
       </Stack>
-    </>
+    </Box>
   );
 }
 

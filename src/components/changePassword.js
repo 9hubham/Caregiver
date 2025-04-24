@@ -6,8 +6,10 @@ import {
   Button
 } from "@mui/material";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 
 function ChangePassword() {
+ const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -56,10 +58,10 @@ function ChangePassword() {
           </Stack>
 
           <Stack direction="row" spacing={2} mt={2}>
-            <Button variant="outlined" sx={outlinedBtnStyle}>
+            <Button variant="outlined" sx={outlinedBtnStyle} onClick={() => navigate(-2)}>
               <Typography sx={cancelTextStyle}>Cancel</Typography>
             </Button>
-            <Button variant="contained" sx={containedBtnStyle}>
+            <Button variant="contained" sx={containedBtnStyle} onClick={() => navigate(-2)}>
               <Typography sx={saveTextStyle}>Save</Typography>
             </Button>
           </Stack>

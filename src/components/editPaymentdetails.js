@@ -13,8 +13,10 @@ import Image from "../assests/image.png";
 import "@fontsource/onest";
 import Calender from "../assests/calendar 1.png";
 import Card from "../assests/card.png";
+import { useNavigate } from "react-router-dom";
 
 function EditPaymentdetails() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -42,7 +44,7 @@ function EditPaymentdetails() {
         >
           Edit Payment details
         </Typography>
-        s{/* Form Section */}
+        {/* Form Section */}
         <Stack
           sx={{
             width: "468px",
@@ -215,6 +217,7 @@ function EditPaymentdetails() {
                   height: "52px",
                   width: "203px",
                 }}
+                onClick={() => navigate(-1)}
               >
                 <Typography
                   sx={{
@@ -236,6 +239,7 @@ function EditPaymentdetails() {
                   width: "203px",
                   backgroundColor: "#024FAA",
                 }}
+                onClick={() => navigate(-1)}
               >
                 <Typography
                   sx={{
